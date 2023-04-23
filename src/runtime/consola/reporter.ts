@@ -1,18 +1,24 @@
 import  { BrowserReporter, ConsolaReporterArgs, ConsolaReporterLogObject } from "consola"
+import { Hookable, createHooks } from "hookable"
 
-export default class CustomReporter extends BrowserReporter{
-    onError;
+type ReporterHooks = {
+    "log:error": (logObj: ConsolaReporterLogObject, args: ConsolaReporterArgs) => void
+}
+export default class CustomReporter extends BrowserReporter { 
 
-    constructor(onError : (logObj: ConsolaReporterLogObject) => void) {
+    hooks: Hookable<ReporterHooks>
+
+    constructor() {
         super()
-        this.onError = onError
+
+        this.hooks = createHooks()
     }
 
 
     log(logObj: ConsolaReporterLogObject, args: ConsolaReporterArgs) {
         super.log(logObj, args)
         if(logObj.type === 'error') {
-            this.onError(logObj)
+            this.hooks.callHook("log:error", logObj, args)
         }
     }
 }
