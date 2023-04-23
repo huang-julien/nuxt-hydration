@@ -2,8 +2,9 @@ import { resolve } from "pathe"
 
 export default defineNuxtConfig({
     modules: [
-        "nuxt-icon",
-        "@nuxtjs/tailwindcss"
+      '@nuxt/devtools-ui-kit',
+      "nuxt-icon",
+      "@nuxtjs/tailwindcss",
     ],
     nitro: {
       output: {

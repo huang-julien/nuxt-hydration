@@ -45,7 +45,7 @@ export default defineNuxtModule({
 
       
       addCustomTab({
-        name: 'nuxt-hydration-checker',
+        name: 'nuxt-hydration',
         title: 'Hydration',
         icon: 'material-symbols:water-drop-rounded',
         view: {

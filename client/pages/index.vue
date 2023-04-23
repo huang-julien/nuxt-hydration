@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <NCard>
     <div class="flex items-center"> 
       <Icon
         name="material-symbols:water-drop-rounded"
@@ -16,7 +16,7 @@
     <div v-else>
       <RouteList :routes="serverData.routes" />
     </div>
-  </div>
+  </NCard>
 </template>
 
 <script setup lang="ts">

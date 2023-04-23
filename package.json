@@ -29,9 +29,9 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@nuxt/devtools": "^0.3.0",
+    "@nuxt/devtools": "^0.4.1",
     "@nuxt/devtools-kit": "^0.4.1",
-    "@nuxt/devtools-ui-kit": "^0.2.3",
+    "@nuxt/devtools-ui-kit": "^0.4.1",
     "@nuxt/kit": "^3.4.2",
     "@nuxtjs/tailwindcss": "^6.4.1",
     "@vueuse/core": "^9.13.0",
