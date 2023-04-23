@@ -1,4 +1,4 @@
-import { hydrationMessages } from '../utils';
+import { hydrationMessages } from './utils';
 import { defineNuxtPlugin, useState } from '#app'
 import consola, { LogObject  } from "consola"
 import CustomReporter from './consola/reporter'

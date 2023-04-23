@@ -4,7 +4,7 @@ import {defineEventHandler, readBody} from "h3"
 import { extendServerRpc, onDevToolsInitialized, addCustomTab } from '@nuxt/devtools-kit'
 import { ClientFunctions, ServerFunctions } from './types'
 import { BirpcGroup } from 'birpc'
-import { RPC_NAMESPACE } from './utils'
+import { RPC_NAMESPACE } from './runtime/utils'
 
 const data: Record<string, number> = {}
 
@@ -21,7 +21,7 @@ export default defineNuxtModule({
     addPlugin({ mode: 'client', src: resolver.resolve('./runtime/plugin') })
 
     nuxt.hook('vite:serverCreated', (server) => {
-      server.middlewares.use('/__hydration_client', sirv(resolver.resolve('../dist/client'), { single: true, dev: true }))
+      server.middlewares.use('/__hydration_client', sirv(resolver.resolve('./client'), { single: true, dev: true }))
     })
 
     let rpc: BirpcGroup<ClientFunctions, ServerFunctions>

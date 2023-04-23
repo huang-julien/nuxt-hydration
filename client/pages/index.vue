@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import { useDevtoolsClient, onDevtoolsClientConnected } from "@nuxt/devtools-kit/iframe-client"
 import { ClientFunctions, ServerData, ServerFunctions } from "~/../src/types"
-import { RPC_NAMESPACE } from "~/../src/utils"
+import { RPC_NAMESPACE } from "~/../src/runtime/utils"
 import {ref} from "#imports"
 
 const devtools = useDevtoolsClient() 
