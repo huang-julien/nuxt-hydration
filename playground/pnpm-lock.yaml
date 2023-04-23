@@ -1,0 +1,12 @@
+lockfileVersion: '6.0'
+
+dependencies:
+  consola:
+    specifier: ^3.1.0
+    version: 3.1.0
+
+packages:
+
+  /consola@3.1.0:
+    resolution: {integrity: sha512-rrrJE6rP0qzl/Srg+C9x/AE5Kxfux7reVm1Wh0wCjuXvih6DqZgqDZe8auTD28fzJ9TF0mHlSDrPpWlujQRo1Q==}
+    dev: false
