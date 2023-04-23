@@ -1,6 +1,6 @@
 <template>
   <NCard>
-    <div class="flex items-center"> 
+    <div class="flex items-baseline text-align-bottom"> 
       <Icon
         name="material-symbols:water-drop-rounded"
         class="text-2xl"
@@ -23,7 +23,7 @@
 import { useDevtoolsClient, onDevtoolsClientConnected } from "@nuxt/devtools-kit/iframe-client"
 import { ClientFunctions, ServerData, ServerFunctions } from "~/../src/types"
 import { RPC_NAMESPACE } from "~/../src/runtime/utils"
-import {ref} from "#imports"
+import { ref } from "#imports"
 
 const devtools = useDevtoolsClient() 
 const serverData = ref<ServerData>({
