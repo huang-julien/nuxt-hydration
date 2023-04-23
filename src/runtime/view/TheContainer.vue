@@ -24,7 +24,8 @@
 
 <script setup lang="ts">
 import { NAlert, NButton } from "naive-ui"
-import { useRoute, useState } from '#app';
+// @ts-ignore tsconfig
+import { useRoute, useState } from '#imports';
 import { watch, ref } from 'vue'; 
 
 const route = useRoute()
@@ -35,6 +36,7 @@ watch(hydrationFailed, () => {
   if(hydrationFailed.value) {
     state.value = true
   
+    // @ts-ignore tsconfig
     $fetch('/_hydration_state', {
       method: 'post',
       body: {

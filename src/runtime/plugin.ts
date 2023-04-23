@@ -1,6 +1,6 @@
 import { hydrationMessages } from '../utils';
 import { defineNuxtPlugin, useState } from '#app'
-import consola, { ConsolaReporter  } from "consola"
+import consola, { LogObject  } from "consola"
 import CustomReporter from './consola/reporter'
 import { createApp } from 'vue';
 import Container from './view/TheContainer.vue';
@@ -9,7 +9,7 @@ export default defineNuxtPlugin((nuxt) => {
   const hydrationFailed = useState('hydration-failed', () => false)
  
 
-  function onError(logObj: ConsolaReporter) { 
+  function onError(logObj: LogObject) { 
     if(hydrationMessages.includes(logObj.args[0])) {
       hydrationFailed.value = true
     
