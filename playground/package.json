@@ -1,7 +1,4 @@
 {
   "private": true,
-  "name": "my-module-playground",
-  "dependencies": {
-    "consola": "^3.1.0"
-  }
+  "name": "my-module-playground"
 }
