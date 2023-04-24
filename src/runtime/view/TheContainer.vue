@@ -1,29 +1,24 @@
 <template>
   <div>
-    <Transition name="fade">
-      <NAlert 
+    <Transition name="fade"> 
+      <div
         v-if="state"
-        id="alert-hydration"
-        title="Oh no !"
-        type="error"
+        id="nuxt-hydration-container"
+        class="bg-red "
       >
-        <div>
-          Hey ! there might be an issue with hydration ! Check your console or the devtools !
+        Hey ! there might be an issue with hydration ! Check your console or the devtools !
          
-          <NButton
-            type="error"
-            @click="state = false"
-          >
-            Close
-          </NButton>
-        </div>
-      </NAlert>
+        <button
+          @click="state = false"
+        >
+          Close
+        </button>
+      </div> 
     </Transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { NAlert, NButton } from "naive-ui"
 // @ts-ignore tsconfig
 import { useRoute, useState } from '#imports';
 import { watch, ref } from 'vue'; 
@@ -48,11 +43,23 @@ watch(hydrationFailed, () => {
 })
 </script>
 
-<style>
+<style scoped>
 #nuxt-hydration-container {
-  border: rgb(236, 115, 115);
+  background-color: rgb(255, 0, 0, 0.7);
+  border-radius: 0.5em;
+  color: white;
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 1em;
+  right: 1em;
+  padding: 1rem;
+}
+
+button {
+  border: white 1px solid;
+  padding: 0.3em;
+  background: transparent;
+  color: white;
+  border-radius: 0.2em;
+  cursor: pointer;
 }
 </style>
