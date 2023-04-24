@@ -1,7 +1,6 @@
 import { hydrationMessages } from './utils';
 import { defineNuxtPlugin, useState } from '#app'
-import consola, { LogObject  } from "consola"
-import CustomReporter from './consola/reporter'
+import { LogObject, createConsola  } from "consola"
 import { createApp } from 'vue';
 import Container from './view/TheContainer.vue';
  
@@ -23,9 +22,19 @@ export default defineNuxtPlugin((nuxt) => {
   }
 
 
-  const reporter = new CustomReporter()
-  reporter.hooks.hook('log:error', onError)
-  consola.setReporters([reporter]).wrapConsole()
+  const consola = createConsola({
+    reporters:[
+      {
+        log(logObj) {
+          if(logObj.type === 'error') {
+            onError(logObj)
+          }
+        }
+      }
+    ]
+  })
+
+  consola.wrapAll()
 
   // create the container div
   const containerNode = document.createElement('div')

@@ -45,13 +45,14 @@
     "hookable": "^5.4.2",
     "naive-ui": "^2.34.3",
     "nuxt": "3.4.2",
+    "nuxt-icon": "^0.3.3",
     "sirv": "^2.0.2",
     "tinyws": "^0.1.0",
     "unstorage": "^1.5.0"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
-    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/module-builder": "^0.3.0",
     "@nuxt/schema": "latest",
     "@nuxt/test-utils": "latest",
     "vitest": "^0.28.5"
