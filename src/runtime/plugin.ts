@@ -8,14 +8,14 @@ export default defineNuxtPlugin((nuxt) => {
   const hydrationFailed = useState('hydration-failed', () => false)
  
 
-  function onError(logObj: LogObject) { 
+  function onError(logObj: LogObject) {  
     if(hydrationMessages.includes(logObj.args[0])) {
       hydrationFailed.value = true
     
       $fetch('/__hydration_ping', {
         method: 'POST',
         body: {
-          route: nuxt.vueApp.$nuxt.$route.path
+          route: nuxt._route.matched[0].path
         }
       })
     }

@@ -1,4 +1,4 @@
-import { defineNuxtModule, addPlugin, createResolver, addDevServerHandler } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin, createResolver, addDevServerHandler, addServerPlugin, addTemplate } from '@nuxt/kit'
 import sirv from "sirv" 
 import initServer from './runtime/devtools/init'
 
@@ -18,6 +18,6 @@ export default defineNuxtModule({
       server.middlewares.use('/__hydration_client', sirv(resolver.resolve('./client'), { single: true, dev: true }))
     })
 
-    initServer()
+    initServer(nuxt)
   }
 })
