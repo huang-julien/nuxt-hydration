@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-hydration-checker",
+  "name": "nuxt-hydration",
   "version": "0.0.1",
   "description": "Actively warns you about hydration issues",
   "license": "MIT",
