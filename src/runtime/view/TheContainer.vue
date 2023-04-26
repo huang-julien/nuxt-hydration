@@ -1,36 +1,36 @@
 <template>
   <div>
-    <Transition name="fade"> 
+    <Transition name="fade">
       <div
         v-if="state"
         id="nuxt-hydration-container"
         class="bg-red "
       >
         Hey ! there might be an issue with hydration ! Check your console or the devtools !
-         
+
         <button
           @click="state = false"
         >
           Close
         </button>
-      </div> 
+      </div>
     </Transition>
   </div>
 </template>
 
 <script setup lang="ts">
 // @ts-ignore tsconfig
-import { useRoute, useState } from '#imports';
-import { watch, ref } from 'vue'; 
+import { watch, ref } from 'vue'
+import { useRoute, useState } from '#imports'
 
 const route = useRoute()
 const hydrationFailed = useState('hydration-failed', () => false)
 const state = ref(false)
 
 watch(hydrationFailed, () => {
-  if(hydrationFailed.value) {
+  if (hydrationFailed.value) {
     state.value = true
-  
+
     // @ts-ignore tsconfig
     $fetch('/_hydration_state', {
       method: 'post',

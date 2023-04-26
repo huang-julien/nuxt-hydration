@@ -15,8 +15,8 @@ export type HydrationFailRequest = {
 export type ServerData = {
     routes: Record<string, number>
 }
- 
-export type  ServerFunctions = {
+
+export type ServerFunctions = {
     updateStats(route: string): void
     getStats(): ServerData
 }
