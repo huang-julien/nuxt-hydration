@@ -1,5 +1,5 @@
-import { defineNuxtModule, addPlugin, createResolver, addDevServerHandler, addServerPlugin, addTemplate } from '@nuxt/kit'
-import sirv from "sirv" 
+import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
+import sirv from 'sirv'
 import initServer from './runtime/devtools/init'
 
 export default defineNuxtModule({
@@ -7,8 +7,8 @@ export default defineNuxtModule({
     name: 'nuxt-hydration-checker'
   },
   defaults: {},
-  setup(_, nuxt) {
-    if (!nuxt.options.dev) return
+  setup (_, nuxt) {
+    if (!nuxt.options.dev) { return }
 
     const resolver = createResolver(import.meta.url)
 

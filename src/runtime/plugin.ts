@@ -1,17 +1,16 @@
-import { hydrationMessages } from './utils';
 import { defineNuxtPlugin, useState } from '#app'
-import { LogObject, createConsola  } from "consola"
-import { createApp } from 'vue';
-import Container from './view/TheContainer.vue';
- 
+import { LogObject, createConsola } from 'consola'
+import { createApp } from 'vue'
+import { hydrationMessages } from './utils'
+import Container from './view/TheContainer.vue'
+
 export default defineNuxtPlugin((nuxt) => {
   const hydrationFailed = useState('hydration-failed', () => false)
- 
 
-  function onError(logObj: LogObject) {  
-    if(hydrationMessages.includes(logObj.args[0])) {
+  function onError (logObj: LogObject) {
+    if (hydrationMessages.includes(logObj.args[0])) {
       hydrationFailed.value = true
-    
+
       $fetch('/__hydration_ping', {
         method: 'POST',
         body: {
@@ -21,12 +20,11 @@ export default defineNuxtPlugin((nuxt) => {
     }
   }
 
-
   const consola = createConsola({
-    reporters:[
+    reporters: [
       {
-        log(logObj) {
-          if(logObj.type === 'error') {
+        log (logObj) {
+          if (logObj.type === 'error') {
             onError(logObj)
           }
         }
@@ -38,7 +36,7 @@ export default defineNuxtPlugin((nuxt) => {
 
   // create the container div
   const containerNode = document.createElement('div')
-  containerNode.id = 'nuxt-hydration-container' 
+  containerNode.id = 'nuxt-hydration-container'
   document.body.appendChild(containerNode)
 
   // create the app
