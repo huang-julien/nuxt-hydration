@@ -1,3 +1,1 @@
-
-
-export const HYDRATION_ENDPOINT = "/_hydration-state"
+export const HYDRATION_ENDPOINT = '/_hydration-state'

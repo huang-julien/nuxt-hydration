@@ -1,7 +1,7 @@
 <template>
-  <div class="m-5"> 
-    <table class="w-full text-left"> 
-      <thead 
+  <div class="m-5">
+    <table class="w-full text-left">
+      <thead
         class="border-b n-border-base"
       >
         <tr>
@@ -12,7 +12,7 @@
             hydration failed time:
           </th>
         </tr>
-      </thead> 
+      </thead>
       <tbody>
         <tr
           v-for="(failedTime, route) in routes"
@@ -26,12 +26,12 @@
           </td>
         </tr>
       </tbody>
-    </table>    
+    </table>
   </div>
 </template>
 
 <script setup lang="ts">
 defineProps<{
-    routes: Record<string, number> 
+    routes: Record<string, number>
 }>()
 </script>
