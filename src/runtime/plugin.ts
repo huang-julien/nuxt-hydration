@@ -1,5 +1,5 @@
 import { defineNuxtPlugin, useState } from '#app'
-import { LogObject, createConsola } from 'consola'
+import { LogObject, consola } from 'consola'
 import { createApp } from 'vue'
 import { hydrationMessages } from './utils'
 import Container from './view/TheContainer.vue'
@@ -20,19 +20,16 @@ export default defineNuxtPlugin((nuxt) => {
     }
   }
 
-  const consola = createConsola({
-    reporters: [
-      {
-        log (logObj) {
-          if (logObj.type === 'error') {
-            onError(logObj)
-          }
+  consola.addReporter(
+    {
+      log (logObj) {
+        if (logObj.type === 'error') {
+          onError(logObj)
         }
       }
-    ]
-  })
+    })
 
-  consola.wrapAll()
+  consola.wrapConsole()
 
   // create the container div
   const containerNode = document.createElement('div')
