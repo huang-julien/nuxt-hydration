@@ -19,6 +19,7 @@ export type ServerData = {
 export type ServerFunctions = {
     updateStats(route: string): void
     getStats(): ServerData
+    reset(): void
 }
 
 export type ClientFunctions = {

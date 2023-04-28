@@ -41,6 +41,14 @@ export default function initServer (nuxt: Nuxt) {
         return {
           routes: routesCount
         }
+      },
+      reset () {
+        for (const route in routesCount) {
+          routesCount[route] = 0
+        }
+        rpc.broadcast.updateData({
+          routes: routesCount
+        })
       }
     })
 
