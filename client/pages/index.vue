@@ -1,48 +1,27 @@
 <template>
-  <NCard>
-    <div class="flex items-baseline text-align-bottom">
-      <Icon
-        name="material-symbols:water-drop-rounded"
-        class="text-2xl"
-      />
-      <h1 class="text-3xl">
-        nuxt-hydration
-      </h1>
+  <div class="flex flex-col gap-5">
+    <div>
+      <div class="mb-3 text-xl">
+        Current route
+      </div>
+      <RouteInfo :path="currentRoutePath.value.matched[0].path" :route="currentRoutePath.value.fullPath" :failed-count="failedTime" />
     </div>
-
-    <p v-if="!devtools">
-      awaiting devtools connection
-    </p>
-    <div v-else class="px-2">
-      <div class="flex">
-        <NButton @click="rpc.reset()">
-          Reset
-        </NButton>
+    <div>
+      <div class="mb-3 text-xl">
+        All routes
       </div>
       <RouteList :routes="serverData.routes" />
     </div>
-  </NCard>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { useDevtoolsClient, onDevtoolsClientConnected } from '@nuxt/devtools-kit/iframe-client'
-import { BirpcReturn } from 'birpc'
-import { ClientFunctions, ServerData, ServerFunctions } from '~/../src/types'
-import { RPC_NAMESPACE } from '~/../src/runtime/utils'
-import { ref } from '#imports'
+import { useDevtoolsClient } from '@nuxt/devtools-kit/iframe-client'
+// eslint-disable-next-line import/named
+import { useServerData, computed } from '#imports'
 
 const devtools = useDevtoolsClient()
-const serverData = ref<ServerData>({
-  routes: {}
-})
-let rpc: BirpcReturn<ServerFunctions, ClientFunctions>
-onDevtoolsClientConnected(async (client) => {
-  rpc = client.devtools.extendClientRpc<ServerFunctions, ClientFunctions>(RPC_NAMESPACE, {
-    updateData (data) {
-      serverData.value = data
-    }
-  })
-
-  serverData.value = await rpc.getStats()
-})
+const currentRoutePath = computed(() => devtools.value!.host.nuxt.$router.currentRoute)
+const serverData = useServerData()
+const failedTime = computed(() => serverData.value.routes[currentRoutePath.value.value.matched[0].path])
 </script>
