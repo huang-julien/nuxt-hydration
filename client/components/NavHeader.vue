@@ -1,6 +1,7 @@
 <template>
   <div class="flex gap-3">
-    <NButton @click="rpc.reset()">
+    <slot name="prepend" />
+    <NButton class="ml-auto" @click="rpc.reset()">
       Reset all
     </NButton>
   </div>

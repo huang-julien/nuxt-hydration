@@ -16,6 +16,8 @@
       <tr
         v-for="(failedTime, route) in routes"
         :key="route"
+        class="hover:cursor-pointer hover:bg-white/25"
+        @click="$emit('click:route', route)"
       >
         <td>
           {{ route }}
@@ -32,4 +34,6 @@
 defineProps<{
     routes: Record<string, number>
 }>()
+
+defineEmits<{(e: 'click:route', path: string): void }>()
 </script>

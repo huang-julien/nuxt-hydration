@@ -3,7 +3,6 @@
     <NuxtLayout>
       <NLoading v-if="!devtools" />
       <div v-else class="px-2">
-        <NavHeader class="mb-3" />
         <NuxtPage />
       </div>
     </NuxtLayout>
