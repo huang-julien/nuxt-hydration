@@ -106,6 +106,7 @@ export default function initServer (nuxt: Nuxt) {
       if (rpc) {
         rpc.broadcast.updateData(data)
       }
+      return 'ok'
     })
   })
 }
