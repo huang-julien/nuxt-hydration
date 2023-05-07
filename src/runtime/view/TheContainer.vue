@@ -21,24 +21,14 @@
 <script setup lang="ts">
 // @ts-ignore tsconfig
 import { watch, ref } from 'vue'
-import { useRoute, useState } from '#imports'
+import { useState } from '#imports'
 
-const route = useRoute()
 const hydrationFailed = useState('hydration-failed', () => false)
 const state = ref(false)
 
 watch(hydrationFailed, () => {
   if (hydrationFailed.value) {
     state.value = true
-
-    // @ts-ignore tsconfig
-    $fetch('/_hydration_state', {
-      method: 'post',
-      body: {
-        route: route.fullPath,
-        hydrationFailed: true
-      }
-    })
   }
 })
 </script>

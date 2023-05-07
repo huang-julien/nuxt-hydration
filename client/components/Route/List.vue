@@ -10,4 +10,6 @@ import { RouteHydrationInfo } from '~/../src/runtime/types'
 defineProps<{
   routes: RouteHydrationInfo[]
 }>()
+
+defineEmits<{(e: 'click:route', path: string): void }>()
 </script>
