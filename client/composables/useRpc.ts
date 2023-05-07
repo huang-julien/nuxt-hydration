@@ -1,7 +1,7 @@
 import { BirpcReturn } from 'birpc'
 import type { Ref } from 'vue'
 import { inject } from '#imports'
-import { ClientFunctions, ServerFunctions } from '~/../src/types'
+import { ClientFunctions, ServerFunctions } from '~/../src/runtime/types'
 export const RPC_INJECT_KEY = Symbol('rpc-injection')
 
 export default function useRpc () {

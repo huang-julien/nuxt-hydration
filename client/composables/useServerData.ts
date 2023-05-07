@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { inject } from '#imports'
-import { ServerData } from '~/../src/types'
+import { ServerData } from '~/../src/runtime/types'
 
 export const SERVER_DATA_INJECT_KEY = Symbol('server-data')
 

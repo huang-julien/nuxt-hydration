@@ -1,6 +1,6 @@
 import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
 import sirv from 'sirv'
-import initServer from './runtime/devtools/init'
+import initServer from './runtime/devtools/server/init'
 
 export default defineNuxtModule({
   meta: {
