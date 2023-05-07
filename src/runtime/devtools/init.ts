@@ -81,6 +81,7 @@ export default function initServer (nuxt: Nuxt) {
           routes: routesCount
         })
       }
+      return 'ok'
     })
   })
 }
