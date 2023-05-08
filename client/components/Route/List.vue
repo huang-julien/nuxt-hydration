@@ -1,6 +1,6 @@
 <template>
   <NCard>
-    <RouteListItem v-for="routeInfo in routes" :key="routeInfo.route" :info="routeInfo" class=" border-b border-base" />
+    <RouteListItem v-for="routeInfo in routes" :key="routeInfo.route" :info="routeInfo" />
   </NCard>
 </template>
 
