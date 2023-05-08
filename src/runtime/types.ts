@@ -1,7 +1,7 @@
 
 export enum ROUTE_TYPE {
-  WITHOUT_PARAMS = 0,
-  WITH_PARAMS = 1
+  WITHOUT_PARAMS,
+  WITH_PARAMS
 }
 
 export type PathInfo = {
