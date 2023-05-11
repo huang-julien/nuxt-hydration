@@ -1,18 +1,23 @@
 <template>
-  <NSectionBlock :open="state" text="">
-    <template #text>
+  <NIconTitle text-md transition class="op60" p4>
+    <div class="flex w-full justify-between">
       <p>Route: <span class="font-bold">{{ routeInfo.route }}</span>  -- Hydration failed time: {{ routeInfo.failedTime }}</p>
-    </template>
-  </NSectionBlock>
+      <NButton @click="reset">Reset</NButton>
+    </div>
+  </NIconTitle>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { RouteInfo } from '~/../src/runtime/types'
+import useRpc from '~/composables/useRpc'
 
-const state = ref(false)
-
-defineProps<{
+const props = defineProps<{
     routeInfo: RouteInfo
 }>()
+
+const rpc = useRpc()
+
+function reset () {
+  rpc.value.resetRoute(props.routeInfo.route)
+}
 </script>
