@@ -3,15 +3,20 @@
     <template #text>
       <p>Route: <span class="font-bold">{{ routeInfo.route }}</span> -- Hydration failed time : {{ totalFailedTime }} </p>
     </template>
-    <div v-for="path in routeInfo.paths" :key="path.path" class="grid grid-cols-2 pl-5">
-      <p>path: <span class="font-bold">{{ path.path }}</span></p>
-      <p>
-        hydration failed time: {{ path.failedTime }}
-        <NButton ml-5 @click="reset(path.path)">
-          Reset
-        </NButton>
-      </p>
-    </div>
+    <template v-if="routeInfo.paths.length">
+      <div v-for="path in routeInfo.paths" :key="path.path" class="grid grid-cols-2 pl-5">
+        <p>path: <span class="font-bold">{{ path.path }}</span></p>
+        <p>
+          hydration failed time: {{ path.failedTime }}
+          <NButton ml-5 @click="reset(path.path)">
+            Reset
+          </NButton>
+        </p>
+      </div>
+    </template>
+    <p v-else ml-5>
+      There's no path available, try to test a page that satisfies {{ routeInfo.route }}
+    </p>
   </NSectionBlock>
 </template>
 
