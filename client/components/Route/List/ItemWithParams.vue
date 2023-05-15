@@ -1,5 +1,5 @@
 <template>
-  <NSectionBlock :open="state" text="" class="op100">
+  <NSectionBlock :open="state" text="" >
     <template #text>
       <p>Route: <span class="font-bold">{{ routeInfo.route }}</span> -- Hydration failed time : {{ totalFailedTime }} </p>
     </template>
