@@ -12,14 +12,14 @@
 import { useDevtoolsClient, onDevtoolsClientConnected } from '@nuxt/devtools-kit/iframe-client'
 import { BirpcReturn } from 'birpc'
 import { Ref } from 'vue'
-import { ClientFunctions, ServerData, ServerFunctions } from '~/../src/types'
+import { ClientFunctions, ServerData, ServerFunctions } from '~/../src/runtime/types'
 import { RPC_NAMESPACE } from '~/../src/runtime/utils'
 // eslint-disable-next-line import/named
 import { ref, provide, RPC_INJECT_KEY, SERVER_DATA_INJECT_KEY } from '#imports'
 
 const devtools = useDevtoolsClient()
 const serverData = ref<ServerData>({
-  routes: {}
+  routes: []
 })
 
 provide(SERVER_DATA_INJECT_KEY, serverData)

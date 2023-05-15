@@ -14,7 +14,8 @@ export default defineNuxtPlugin((nuxt) => {
       $fetch('/__hydration_ping', {
         method: 'POST',
         body: {
-          route: nuxt._route.matched[0]?.path ?? '/'
+          route: nuxt._route.matched[0]?.path ?? '/',
+          path: nuxt._route.fullPath
         }
       })
     }
