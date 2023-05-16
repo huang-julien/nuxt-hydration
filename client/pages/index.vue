@@ -1,5 +1,9 @@
 <template>
-  <NavHeader class="mb-3" />
+  <NavHeader class="mb-3">
+    <template #prepend>
+      <TestingInput />
+    </template>
+  </NavHeader>
   <div class="flex flex-col gap-5">
     <div>
       <div class="mb-3 text-xl">

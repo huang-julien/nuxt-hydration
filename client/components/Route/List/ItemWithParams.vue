@@ -4,7 +4,7 @@
       <p>Route: <span class="font-bold">{{ routeInfo.route }}</span> -- Hydration failed time : {{ totalFailedTime }} </p>
     </template>
     <template v-if="routeInfo.paths.length">
-      <RouteListItemWithParamsItem v-for="path in routeInfo.paths" :key="path.path" class="flex justify-between w-full pl-5" :route="path" />
+      <RouteListItemWithParamsItem v-for="path in routeInfo.paths" :key="path.path" class="flex justify-between w-full pl-5 my-2" :route="path" />
     </template>
     <p v-else ml-5>
       There's no path available, try to test a page that satisfies {{ routeInfo.route }}
