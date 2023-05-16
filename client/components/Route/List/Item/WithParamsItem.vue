@@ -6,7 +6,7 @@
         hydration failed time: {{ route.failedTime }}
       </p>
     </div>
-    <div flex gap-5>
+    <div flex justify-between gap>
       <NButton :disabled="isTesting" @click="() => testPath(route.path)">
         <span v-if="!isTesting">
           Test
