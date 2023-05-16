@@ -21,6 +21,13 @@ export default defineNuxtPlugin((nuxt) => {
     }
   }
 
+  // if it is a testing iframe, ping the devtool parent to remove this app
+  nuxt.hook('app:suspense:resolve', () => {
+    if (window.parent) {
+      window.parent.postMessage('__nuxt__hydration', '*')
+    }
+  })
+
   consola.addReporter(
     {
       log (logObj) {
