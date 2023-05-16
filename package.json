@@ -37,7 +37,7 @@
     "@vueuse/core": "^9.13.0",
     "@vueuse/nuxt": "^9.13.0",
     "birpc": "^0.2.11",
-    "changelogen": "^0.4.1",
+    "changelogen": "^0.5.0",
     "consola": "^3.1.0",
     "eslint": "^8.40.0",
     "flatted": "^3.2.7",
