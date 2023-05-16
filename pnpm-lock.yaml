@@ -23,8 +23,8 @@ dependencies:
     specifier: ^9.13.0
     version: 9.13.0(vue@3.3.2)
   '@vueuse/nuxt':
-    specifier: ^9.13.0
-    version: 9.13.0(nuxt@3.5.0)(rollup@3.21.8)(vue@3.3.2)
+    specifier: ^10.0.0
+    version: 10.1.2(nuxt@3.5.0)(rollup@3.21.8)(vue@3.3.2)
   birpc:
     specifier: ^0.2.11
     version: 0.2.11
@@ -2403,24 +2403,6 @@ packages:
       '@nuxt/kit': 3.5.0(rollup@3.21.8)
       '@vueuse/core': 10.1.2(vue@3.3.2)
       '@vueuse/metadata': 10.1.2
-      local-pkg: 0.4.3
-      nuxt: 3.5.0(@types/node@20.1.5)(eslint@8.40.0)(rollup@3.21.8)(typescript@5.0.4)
-      vue-demi: 0.14.1(vue@3.3.2)
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - rollup
-      - supports-color
-      - vue
-    dev: false
-
-  /@vueuse/nuxt@9.13.0(nuxt@3.5.0)(rollup@3.21.8)(vue@3.3.2):
-    resolution: {integrity: sha512-JunH/w6nFIwCyaZ0s+pfrYFMfBzGfhkwmFPz7ogHFmb71Ty/5HINrYOAOZCXpN44X6QH6FiJq/wuLLdvYzqFUw==}
-    peerDependencies:
-      nuxt: ^3.0.0
-    dependencies:
-      '@nuxt/kit': 3.5.0(rollup@3.21.8)
-      '@vueuse/core': 9.13.0(vue@3.3.2)
-      '@vueuse/metadata': 9.13.0
       local-pkg: 0.4.3
       nuxt: 3.5.0(@types/node@20.1.5)(eslint@8.40.0)(rollup@3.21.8)(typescript@5.0.4)
       vue-demi: 0.14.1(vue@3.3.2)
