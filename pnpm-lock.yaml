@@ -20,8 +20,8 @@ dependencies:
     specifier: ^6.7.0
     version: 6.7.0(rollup@3.21.8)(webpack@5.82.1)
   '@vueuse/core':
-    specifier: ^9.13.0
-    version: 9.13.0(vue@3.3.2)
+    specifier: ^10.0.0
+    version: 10.1.2(vue@3.3.2)
   '@vueuse/nuxt':
     specifier: ^9.13.0
     version: 9.13.0(nuxt@3.5.0)(rollup@3.21.8)(vue@3.3.2)
