@@ -8,8 +8,8 @@ dependencies:
     specifier: ^0.4.6
     version: 0.4.6(nuxt@3.5.0)(rollup@3.21.8)(vite@4.3.7)
   '@nuxt/devtools-kit':
-    specifier: ^0.4.6
-    version: 0.4.6(nuxt@3.5.0)(rollup@3.21.8)(vite@4.3.7)
+    specifier: ^0.5.0
+    version: 0.5.0(nuxt@3.5.0)(rollup@3.21.8)(vite@4.3.7)
   '@nuxt/devtools-ui-kit':
     specifier: ^0.4.6
     version: 0.4.6(@nuxt/devtools@0.4.6)(nuxt@3.5.0)(postcss@8.4.23)(rollup@3.21.8)(vite@4.3.7)(vue@3.3.2)(webpack@5.82.1)
@@ -915,6 +915,22 @@ packages:
 
   /@nuxt/devtools-kit@0.4.6(nuxt@3.5.0)(rollup@3.21.8)(vite@4.3.7):
     resolution: {integrity: sha512-zqWvpkg7sV1spJ7ekQ4L8iRZ+3yUtJllS5j+jyUtzhjb77kEcfYagzPOSGTbg5Wv1tJCBQaCZIEchIwai+AYeA==}
+    peerDependencies:
+      nuxt: ^3.4.2
+      vite: '*'
+    dependencies:
+      '@nuxt/kit': 3.5.0(rollup@3.21.8)
+      '@nuxt/schema': 3.5.0(rollup@3.21.8)
+      execa: 7.1.1
+      nuxt: 3.5.0(@types/node@20.1.5)(eslint@8.40.0)(rollup@3.21.8)(typescript@5.0.4)
+      vite: 4.3.7(@types/node@20.1.5)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: false
+
+  /@nuxt/devtools-kit@0.5.0(nuxt@3.5.0)(rollup@3.21.8)(vite@4.3.7):
+    resolution: {integrity: sha512-/hxsGMzbcVcaTg1AGbC+mcDGKF0wyqydqeHVi/+pkTRZ332V81mhIJYVRfSJ9q6oBUKLBpGSM39hbohr4dgAag==}
     peerDependencies:
       nuxt: ^3.4.2
       vite: '*'
