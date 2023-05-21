@@ -3,7 +3,7 @@
     <Transition name="fade">
       <div
         v-if="state"
-        id="nuxt-hydration-container"
+        id="nuxt-hydration-warn"
         class="bg-red "
       >
         Hey ! there might be an issue with hydration ! Check your console or the devtools !

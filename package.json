@@ -30,25 +30,26 @@
   },
   "dependencies": {
     "@nuxt/devtools-kit": "^0.5.0",
-    "sirv": "^2.0.3",
-    "h3": "^1.6.6"
+    "h3": "^1.6.6",
+    "sirv": "^2.0.3"
   },
   "devDependencies": {
     "@nuxt/devtools": "^0.5.0",
     "@nuxt/devtools-ui-kit": "^0.5.0",
-    "@nuxt/kit": "^3.5.0",
-    "@nuxtjs/tailwindcss": "^6.7.0",
     "@nuxt/eslint-config": "^0.1.1",
+    "@nuxt/kit": "^3.5.0",
     "@nuxt/module-builder": "^0.3.1",
     "@nuxt/schema": "latest",
     "@nuxt/test-utils": "latest",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@nuxtjs/tailwindcss": "^6.7.0",
     "birpc": "^0.2.11",
     "changelogen": "^0.5.0",
     "consola": "^3.1.0",
     "eslint": "^8.40.0",
     "nuxt": "3.5.0",
     "nuxt-icon": "^0.4.0",
+    "playwright": "^1.34.0",
     "unstorage": "^1.6.0",
     "vitest": "^0.31.0"
   },
