@@ -1,5 +1,5 @@
 <template>
-  <NSectionBlock :open="state" text="">
+  <NSectionBlock :open="state">
     <template #text>
       <p>Route: <span class="font-bold">{{ routeInfo.route }}</span> -- Hydration failed time : {{ totalFailedTime }} </p>
     </template>
@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { RouteWithParam } from '~/../src/runtime/types'
+import { RouteWithParam } from '~/../src/runtime/devtools/types'
 
 const props = defineProps<{
   routeInfo: RouteWithParam
@@ -25,7 +25,7 @@ const state = ref(false)
 const totalFailedTime = computed(() => {
   let count = 0
   props.routeInfo.paths.forEach((p) => {
-    count += p.failedTime
+    count += p.reasons.length
   })
   return count
 })
