@@ -1,13 +1,8 @@
 <template>
   <div>
-    {{ num }}
+    <table>
+      <tfoot>a</tfoot>
+      <tfoot>d</tfoot>
+    </table>
   </div>
 </template>
-
-<script setup>
-let num = 5
-
-if (process.client) {
-  num = 6
-}
-</script>

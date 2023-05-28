@@ -1,19 +1,19 @@
 <template>
-  <div @click="navigateToRoute(route.path)">
-    <div>
+  <div>
+    <div hover:cursor-pointer  @click="navigateToRoute(route.path)">
       <p>path: <span class="font-bold">{{ route.path }}</span></p>
       <p>
         hydration failed time: {{ route.reasons.length }}
       </p>
     </div>
     <div flex justify-between gap>
-      <NButton :disabled="isTesting" @click.stop="() => testPath(route.path)">
+      <NButton class="h-fit" :disabled="isTesting" @click.stop="() => testPath(route.path)">
         <span v-if="!isTesting">
           Test
         </span>
         <Icon v-else name="line-md:loading-twotone-loop" />
       </NButton>
-      <NButton ml-5 @click.stop="reset(route.path)">
+      <NButton class="h-fit" ml-5 @click.stop="reset(route.path)">
         Reset
       </NButton>
     </div>

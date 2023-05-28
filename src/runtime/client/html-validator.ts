@@ -13,7 +13,7 @@ export type THtmlValidatorDetail = {
     filePath?: string|null,
     message: string,
     selector?: string|null,
-    type: 'html-validate'
+    type: 'Invalid html'
 }
 
 export function getHtmlValidatorDetails (results: Result[]): THtmlValidatorDetail[] {
@@ -28,7 +28,7 @@ export function getHtmlValidatorDetails (results: Result[]): THtmlValidatorDetai
         filePath,
         message: issue.message,
         selector: issue.selector,
-        type: 'html-validate'
+        type: 'Invalid html'
       } as const)
     }
   }

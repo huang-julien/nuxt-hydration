@@ -4,7 +4,7 @@ export enum ROUTE_TYPE {
   WITHOUT_PARAMS,
   WITH_PARAMS
 }
-export type ReasonName = 'html-invalid' | 'unknown'
+export type ReasonName = 'Invalid html' | 'unknown'
 
 export type ReasonDetail = THtmlValidatorDetail
 

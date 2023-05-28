@@ -20,7 +20,7 @@ export default defineNuxtPlugin({
           reason: 'unknown'
         }
         if (window.__NUXT_HYDRATION_HTMLVALIDATOR_REASON__) {
-          reason.reason = 'html-invalid'
+          reason.reason = 'Invalid html'
           reason.details = getHtmlValidatorDetails(window.__NUXT_HYDRATION_HTMLVALIDATOR_REASON__)
         }
 
