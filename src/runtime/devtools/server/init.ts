@@ -5,7 +5,7 @@ import { BirpcGroup } from 'birpc'
 import { addDevServerHandler } from '@nuxt/kit'
 import { Nuxt, NuxtPage } from '@nuxt/schema'
 import { RPC_NAMESPACE } from '../../utils'
-import { ClientFunctions, ROUTE_TYPE, ServerFunctions } from '../../types'
+import { ClientFunctions, ROUTE_TYPE, Reason, ServerFunctions } from '../types'
 import { data, incrementFailure } from './data'
 import { isRouteWithParams } from './utils'
 
@@ -34,7 +34,7 @@ export default function initServer (nuxt: Nuxt) {
         data.routes.push({
           type: ROUTE_TYPE.WITHOUT_PARAMS,
           route: r.path,
-          failedTime: 0
+          reasons: []
         })
       }
     })
@@ -54,7 +54,7 @@ export default function initServer (nuxt: Nuxt) {
           if (routeInfo.type === ROUTE_TYPE.WITH_PARAMS) {
             routeInfo.paths = []
           } else {
-            routeInfo.failedTime = 0
+            routeInfo.reasons = []
           }
         }
         rpc.broadcast.updateData(data)
@@ -65,7 +65,7 @@ export default function initServer (nuxt: Nuxt) {
         if (routeInfo.type === ROUTE_TYPE.WITH_PARAMS) {
           routeInfo.paths = []
         } else {
-          routeInfo.failedTime = 0
+          routeInfo.reasons = []
         }
         rpc.broadcast.updateData(data)
       },
@@ -74,12 +74,12 @@ export default function initServer (nuxt: Nuxt) {
           if (routeInfo.type === ROUTE_TYPE.WITH_PARAMS) {
             for (const pathInfo of routeInfo.paths) {
               if (pathInfo.path === path) {
-                pathInfo.failedTime = 0
+                pathInfo.reasons = []
                 break
               }
             }
           } else if (routeInfo.route === path) {
-            routeInfo.failedTime = 0
+            routeInfo.reasons = []
             break
           }
         }
@@ -101,8 +101,8 @@ export default function initServer (nuxt: Nuxt) {
   addDevServerHandler({
     route: '/__hydration_ping',
     handler: defineEventHandler(async (evt) => {
-      const { route, path } = await readBody<{route: string, path:string}>(evt)
-      incrementFailure(route, path)
+      const { route, path, reason } = await readBody<{route: string, path:string, reason: Reason}>(evt)
+      incrementFailure(route, path, reason)
       if (rpc) {
         rpc.broadcast.updateData(data)
       }

@@ -1,11 +1,20 @@
+import { THtmlValidatorDetail } from '../client/html-validator'
 
 export enum ROUTE_TYPE {
   WITHOUT_PARAMS,
   WITH_PARAMS
 }
+export type ReasonName = 'Invalid html' | 'unknown'
+
+export type ReasonDetail = THtmlValidatorDetail
+
+export type Reason = {
+    reason: ReasonName
+    details?: ReasonDetail[]
+}
 
 export type PathInfo = {
-    failedTime: number,
+    reasons: Reason[],
     path: string
 }
 
@@ -18,7 +27,7 @@ export type RouteWithParam = {
 export type RouteInfo = {
     route: string,
     type: ROUTE_TYPE.WITHOUT_PARAMS,
-    failedTime: number
+    reasons: Reason[]
 }
 
 export type RouteHydrationInfo = RouteWithParam | RouteInfo

@@ -6,8 +6,10 @@
         id="nuxt-hydration-container"
         class="bg-red "
       >
-        Hey ! there might be an issue with hydration ! Check your console or the devtools !
-
+        <p>
+          Hey ! there might be an issue with hydration ! Check your console or the devtools !
+        </p>
+        <Reason />
         <button
           @click="state = false"
         >
@@ -19,8 +21,8 @@
 </template>
 
 <script setup lang="ts">
-// @ts-ignore tsconfig
 import { watch, ref } from 'vue'
+import Reason from './Reason.vue'
 import { useState } from '#imports'
 
 const hydrationFailed = useState('hydration-failed', () => false)

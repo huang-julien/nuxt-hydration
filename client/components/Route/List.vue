@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { RouteHydrationInfo } from '~/../src/runtime/types'
+import { RouteHydrationInfo } from '~/../src/runtime/devtools/types'
 
 defineProps<{
   routes: RouteHydrationInfo[]
