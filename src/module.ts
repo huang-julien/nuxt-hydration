@@ -1,5 +1,6 @@
 import { defineNuxtModule, addPlugin, createResolver, addServerPlugin } from '@nuxt/kit'
 import sirv from 'sirv'
+import defu from 'defu'
 import initServer from './runtime/devtools/server/init'
 export default defineNuxtModule({
   meta: {
@@ -22,6 +23,9 @@ export default defineNuxtModule({
         { path: resolver.resolve('./runtime/types.d.ts') }
       )
     })
+
+    // @ts-expect-error @nuxtjs/html-validator integration
+    nuxt.options.htmlValidator = defu(nuxt.options.htmlValidator, { hookable: true })
 
     addServerPlugin(resolver.resolve('./runtime/nitro'))
     initServer(nuxt)

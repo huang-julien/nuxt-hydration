@@ -26,7 +26,8 @@
 <script setup lang="ts">
 // eslint-disable-next-line import/named
 import { useServerData, computed, useRoute, navigateTo } from '#imports'
-import { ROUTE_TYPE, RouteInfo as TRouteInfo } from '~/../src/runtime/devtools/types'
+import { RouteInfo as TRouteInfo } from '~/../src/runtime/types/rpc'
+import { ROUTE_TYPE } from '~/../src/runtime/types/reason'
 
 const route = useRoute().query.route as string
 if (!route) { navigateTo('/') }
