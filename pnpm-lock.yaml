@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 overrides:
   consola: ^3.1.0
@@ -1115,10 +1119,15 @@ packages:
   /@nuxt/module-builder@0.3.1:
     resolution: {integrity: sha512-qH/F3SgIE4mobpAfJ6D9c6IqIrhEsiPM+aSdckyJgRGUbyU8urKqPR0d3DkGanN9mWy5Nk6Fwqon6jNKz97SRA==}
     hasBin: true
+    peerDependencies:
+      '@nuxt/kit': ^3.5.0
+      nuxi: ^3.5.0
     dependencies:
+      '@nuxt/kit': 3.5.1(rollup@3.21.8)
       consola: 3.1.0
-      mlly: 1.2.1
+      mlly: 1.3.0
       mri: 1.2.0
+      nuxi: 3.5.1
       pathe: 1.1.0
       unbuild: 1.2.1
     transitivePeerDependencies:
