@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['../src/module', 'nuxt-icon'],
+  modules: ['../src/module', 'nuxt-icon', '@pinia/nuxt'],
   devtools: {
     enabled: true
   },

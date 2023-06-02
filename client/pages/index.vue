@@ -24,7 +24,7 @@
 import { useDevtoolsClient } from '@nuxt/devtools-kit/iframe-client'
 // eslint-disable-next-line import/named
 import { useServerData, computed, navigateTo } from '#imports'
-import { ROUTE_TYPE } from '~/../src/runtime/devtools/types'
+import { ROUTE_TYPE } from '~/../src/runtime/types/reason'
 
 const devtools = useDevtoolsClient()
 const currentRoute = computed(() => devtools.value!.host.nuxt.$router.currentRoute.value)

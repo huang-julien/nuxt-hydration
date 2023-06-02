@@ -1,6 +1,6 @@
 import { HtmlValidate, ConfigData } from 'html-validate'
 import type { NuxtRenderHTMLContext } from 'nuxt/dist/core/runtime/nitro/renderer'
-import { allowedRules } from './client/html-validator'
+import { allowedRules } from './client/reason/html-validator'
 
 const config: ConfigData = {
   rules: allowedRules.reduce((obj, rule) => Object.assign(obj, { [rule]: 'error' }), {})
