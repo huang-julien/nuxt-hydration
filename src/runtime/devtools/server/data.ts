@@ -1,4 +1,5 @@
-import { PathInfo, ROUTE_TYPE, Reason, RouteHydrationInfo, RouteWithParam, ServerData } from '../types'
+import { ROUTE_TYPE, Reason } from '../../types/reason'
+import { ServerData, RouteWithParam, RouteHydrationInfo, PathInfo } from '../../types/rpc'
 
 export const data: ServerData = {
   routes: []

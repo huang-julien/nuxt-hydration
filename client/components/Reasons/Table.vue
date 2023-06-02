@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { Reason } from '~/../src/runtime/devtools/types'
+import { Reason } from '~/../src/runtime/types/reason'
 
 defineProps<{
     reasons: Reason[],

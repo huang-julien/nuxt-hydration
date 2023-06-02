@@ -1,17 +1,4 @@
-import { THtmlValidatorDetail } from '../client/html-validator'
-
-export enum ROUTE_TYPE {
-  WITHOUT_PARAMS,
-  WITH_PARAMS
-}
-export type ReasonName = 'Invalid html' | 'unknown'
-
-export type ReasonDetail = THtmlValidatorDetail
-
-export type Reason = {
-    reason: ReasonName
-    details?: ReasonDetail[]
-}
+import { Reason, ROUTE_TYPE } from './reason'
 
 export type PathInfo = {
     reasons: Reason[],

@@ -3,8 +3,8 @@ import { LogObject, consola } from 'consola'
 import { createApp } from 'vue'
 import { hydrationMessages } from '../utils'
 import Container from '../view/TheContainer.vue'
-import { Reason } from '../devtools/types'
-import { getHtmlValidatorDetails } from './html-validator'
+import { Reason } from '../types/reason'
+import { getHtmlValidatorDetails } from './reason/html-validator'
 
 export default defineNuxtPlugin({
   name: 'nuxt-hydration-plugin',
@@ -12,13 +12,14 @@ export default defineNuxtPlugin({
   setup: (nuxt) => {
     const hydrationFailed = useState('hydration-failed', () => false)
 
+    const reason: Reason = {
+      reason: 'unknown'
+    }
+
     function onError (logObj: LogObject) {
       if (hydrationMessages.includes(logObj.args[0])) {
         hydrationFailed.value = true
 
-        const reason: Reason = {
-          reason: 'unknown'
-        }
         if (window.__NUXT_HYDRATION_HTMLVALIDATOR_REASON__) {
           reason.reason = 'Invalid html'
           reason.details = getHtmlValidatorDetails(window.__NUXT_HYDRATION_HTMLVALIDATOR_REASON__)

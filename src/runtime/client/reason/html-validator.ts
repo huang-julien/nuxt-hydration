@@ -1,4 +1,5 @@
 import { Result } from 'html-validate'
+import { BaseDetails } from '../../types/reason'
 
 export const allowedRules = [
   'element-permitted-content',
@@ -8,7 +9,7 @@ export const allowedRules = [
   // 'element-permitted-parent'
 ]
 
-export type THtmlValidatorDetail = {
+export interface THtmlValidatorDetail extends BaseDetails {
     source?: string|null,
     filePath?: string|null,
     message: string,
