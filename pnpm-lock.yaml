@@ -40,10 +40,10 @@ importers:
         specifier: ^0.4.0
         version: 0.4.0(@nuxt/kit@3.5.1)(nuxi@3.5.1)
       '@nuxt/schema':
-        specifier: latest
-        version: 3.5.2(rollup@3.21.8)
+        specifier: ^3.5.1
+        version: 3.5.1(rollup@3.21.8)
       '@nuxt/test-utils':
-        specifier: latest
+        specifier: ^3.5.1
         version: 3.5.2(rollup@3.21.8)(vitest@0.31.0)(vue@3.3.4)
       '@nuxtjs/eslint-config-typescript':
         specifier: ^12.0.0
