@@ -1,12 +1,13 @@
 <template>
-  <p>Reason: {{ reason }}</p>
+  <p>Reason: {{ reason.reason }}</p>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { getHtmlValidatorReason } from '../client/reason/html-validator'
 
 const reason = computed(() => {
-  if (window.__NUXT_HYDRATION_HTMLVALIDATOR_REASON__) { return 'Invalid HTML' }
-  return 'unkwown'
+  const reason = getHtmlValidatorReason() || { reason: 'unknown' }
+  return reason
 })
 </script>
