@@ -1,7 +1,6 @@
-import { Result } from 'html-validate'
-import { BaseDetails } from '../../types/reason'
+import { BaseDetails, Reason } from '../../types/reason'
 
-export const allowedRules = [
+export const hydrationMismatchRules = [
   'element-permitted-content',
   'element-permitted-occurrences',
   'element-permitted-order'
@@ -17,11 +16,13 @@ export interface THtmlValidatorDetail extends BaseDetails {
     type: 'Invalid html'
 }
 
-export function getHtmlValidatorDetails (results: Result[]): THtmlValidatorDetail[] {
+export function getHtmlValidatorReason (): Reason | null {
+  const results = window.__NUXT_HYDRATION_HTMLVALIDATOR_REASON__ || []
+
   const details = []
   for (const result of results) {
     const { messages, source, filePath } = result
-    const allowedRulesMessage = messages.filter(m => allowedRules.includes(m.ruleId))
+    const allowedRulesMessage = messages.filter(m => hydrationMismatchRules.includes(m.ruleId))
 
     for (const issue of allowedRulesMessage) {
       details.push({
@@ -34,5 +35,11 @@ export function getHtmlValidatorDetails (results: Result[]): THtmlValidatorDetai
     }
   }
 
-  return details
+  if (details.length) {
+    return {
+      reason: 'Invalid html',
+      details
+    }
+  }
+  return null
 }
