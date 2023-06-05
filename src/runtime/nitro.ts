@@ -1,7 +1,7 @@
 import type { Result } from 'html-validate'
-import { RenderResponse } from 'nitropack'
+import { RenderResponse, NitroAppPlugin } from 'nitropack'
 
-export default defineNitroPlugin((nitro) => {
+export default <NitroAppPlugin> function (nitro) {
   nitro.hooks.hook('html-validator:check', ({ results }: { valid:boolean, results: Result[] }, response: RenderResponse) => {
     response.body = response.body.replace('</body>', (`<script>
     window.__NUXT_HYDRATION_HTMLVALIDATOR_REASON__ = JSON.parse( "${JSON.stringify(results).replace(/[\u00A0-\u9999<>\\&]/g, function (i) {
@@ -11,4 +11,4 @@ export default defineNitroPlugin((nitro) => {
     return String.fromCharCode(num);
 }))</script></body>`))
   })
-})
+}
