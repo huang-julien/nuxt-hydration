@@ -3,7 +3,7 @@
     <Transition name="fade">
       <div
         v-if="state"
-        id="nuxt-hydration-container"
+        id="nuxt-hydration-warn"
         class="bg-red "
       >
         <p>

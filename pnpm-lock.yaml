@@ -1241,6 +1241,7 @@ packages:
       get-port-please: 3.0.1
       ofetch: 1.0.1
       pathe: 1.1.0
+      playwright: 1.34.0
       ufo: 1.1.2
       vitest: 0.31.0
       vue: 3.3.4
@@ -6895,6 +6896,20 @@ packages:
       mlly: 1.3.0
       pathe: 1.1.0
 
+  /playwright-core@1.34.0:
+    resolution: {integrity: sha512-fMUY1+iR6kYbJF/EsOOqzBA99ZHXbw9sYPNjwA4X/oV0hVF/1aGlWYBGPVUEqxBkGANDKMziYoOdKGU5DIP5Gg==}
+    engines: {node: '>=14'}
+    dev: true
+
+  /playwright@1.34.0:
+    resolution: {integrity: sha512-fh+Q7fw7fPg2jSjDUNgo46PbKNTKQCYbeYXXbMm1hTbhPc0V62WM6h/pqWLTW0tqjfu8TCLdx7tECd/2AbYaHg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      playwright-core: 1.34.0
+    dev: true
+
   /pluralize@8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
@@ -8992,7 +9007,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitest@0.31.0:
+  /vitest@0.31.0(playwright@1.34.0):
     resolution: {integrity: sha512-JwWJS9p3GU9GxkG7eBSmr4Q4x4bvVBSswaCFf1PBNHiPx00obfhHRJfgHcnI0ffn+NMlIh9QGvG75FlaIBdKGA==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -9041,6 +9056,7 @@ packages:
       magic-string: 0.30.0
       pathe: 1.1.0
       picocolors: 1.0.0
+      playwright: 1.34.0
       std-env: 3.3.3
       strip-literal: 1.0.1
       tinybench: 2.5.0
