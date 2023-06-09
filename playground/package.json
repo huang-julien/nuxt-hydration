@@ -1,4 +1,7 @@
 {
   "private": true,
-  "name": "my-module-playground"
+  "name": "playground",
+  "devDependencies": {
+    "@nuxtjs/html-validator": "^1.4.0"
+  }
 }

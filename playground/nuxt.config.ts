@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['../src/module', 'nuxt-icon'],
+  modules: ['../src/module', 'nuxt-icon', '@nuxtjs/html-validator'],
   devtools: {
     enabled: true
   },

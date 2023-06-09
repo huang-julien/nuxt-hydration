@@ -1,11 +1,7 @@
-
-export enum ROUTE_TYPE {
-  WITHOUT_PARAMS,
-  WITH_PARAMS
-}
+import { Reason, ROUTE_TYPE } from './reason'
 
 export type PathInfo = {
-    failedTime: number,
+    reasons: Reason[],
     path: string
 }
 
@@ -18,7 +14,7 @@ export type RouteWithParam = {
 export type RouteInfo = {
     route: string,
     type: ROUTE_TYPE.WITHOUT_PARAMS,
-    failedTime: number
+    reasons: Reason[]
 }
 
 export type RouteHydrationInfo = RouteWithParam | RouteInfo

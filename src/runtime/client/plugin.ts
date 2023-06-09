@@ -1,8 +1,9 @@
 import { defineNuxtPlugin, useState } from '#app'
 import { LogObject, consola } from 'consola'
 import { createApp } from 'vue'
-import { hydrationMessages } from './utils'
-import Container from './view/TheContainer.vue'
+import { hydrationMessages } from '../utils'
+import Container from '../view/TheContainer.vue'
+import { getHtmlValidatorReason } from './reason/html-validator'
 
 export default defineNuxtPlugin({
   name: 'nuxt-hydration-plugin',
@@ -13,12 +14,13 @@ export default defineNuxtPlugin({
     function onError (logObj: LogObject) {
       if (hydrationMessages.includes(logObj.args[0])) {
         hydrationFailed.value = true
-
+        const reason = getHtmlValidatorReason() || { reason: 'unknown' }
         $fetch('/__hydration_ping', {
           method: 'POST',
           body: {
             route: nuxt._route.matched[0]?.path ?? '/',
-            path: nuxt._route.fullPath
+            path: nuxt._route.fullPath,
+            reason
           }
         })
       }

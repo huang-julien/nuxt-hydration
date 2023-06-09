@@ -1,33 +1,60 @@
 <template>
-  <div>
-    <NavHeader class="mb-3">
+  <div class="flex flex-col gap-3">
+    <NavHeader>
       <template #prepend>
         <NButton class="rounded-3xl text-2xl p-1" @click="navigateTo('/')">
           <Icon name="material-symbols:chevron-left" />
         </NButton>
       </template>
     </NavHeader>
-    <div class="mb-3 text-xl">
+    <div class="text-xl">
       <h1>
         Route:
       </h1>
       <p>
-        {{ routePath }}
+        {{ route }}
       </p>
     </div>
-    <RouteInfo :path="currentRoutePath.value.matched[0].path" :route="currentRoutePath.value.fullPath" :failed-count="failedTime" />
+    <RouteInfo :path="pathInfo?.path ?? route" :route="routeInfo.route" :failed-count="failedTime" />
+
+    <NCard p-3>
+      <ReasonsTable class="w-full" :route="route" :reasons="reasons" />
+    </NCard>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useDevtoolsClient } from '@nuxt/devtools-kit/iframe-client'
 // eslint-disable-next-line import/named
 import { useServerData, computed, useRoute, navigateTo } from '#imports'
+import { RouteInfo as TRouteInfo } from '~/../src/runtime/types/rpc'
+import { ROUTE_TYPE } from '~/../src/runtime/types/reason'
 
-const routePath = useRoute().query.route
-if (!routePath) { navigateTo('/') }
-const devtools = useDevtoolsClient()
-const currentRoutePath = computed(() => devtools.value!.host.nuxt.$router.currentRoute)
+const route = useRoute().query.route as string
+if (!route) { navigateTo('/') }
 const serverData = useServerData()
-const failedTime = computed(() => serverData.value.routes[currentRoutePath.value.value.fullPath])
+
+const routeInfo = computed(() => {
+  const r = serverData.value.routes.find((r) => {
+    if (r.route === route) { return r }
+    if (r.type === ROUTE_TYPE.WITH_PARAMS && r.paths.find(p => p.path === route)) { return r }
+    return undefined
+  })
+  if (!r) { throw createError("Oops couldn't not find the route information") }
+
+  return r
+})
+
+const pathInfo = computed(() => {
+  if (routeInfo.value.type === ROUTE_TYPE.WITHOUT_PARAMS) { return null }
+  return routeInfo.value.paths.find(p => p.path === route)
+})
+
+const reasons = computed(() => {
+  if (pathInfo.value) { return pathInfo.value.reasons }
+  return (routeInfo.value as TRouteInfo).reasons
+})
+
+if (!routeInfo) { throw createError("Oops couldn't not find the route information") }
+
+const failedTime = computed(() => reasons.value?.length ?? 0)
 </script>

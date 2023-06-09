@@ -24,7 +24,7 @@
 import { useDevtoolsClient } from '@nuxt/devtools-kit/iframe-client'
 // eslint-disable-next-line import/named
 import { useServerData, computed, navigateTo } from '#imports'
-import { ROUTE_TYPE } from '~/../src/runtime/types'
+import { ROUTE_TYPE } from '~/../src/runtime/types/reason'
 
 const devtools = useDevtoolsClient()
 const currentRoute = computed(() => devtools.value!.host.nuxt.$router.currentRoute.value)
@@ -36,9 +36,9 @@ const failedTime = computed(() => {
   })
   if (!route) { return 0 }
   if (route?.type === ROUTE_TYPE.WITHOUT_PARAMS) {
-    return route.failedTime
+    return route.reasons.length
   }
-  return route.paths.find(p => p.path === currentRoute.value.fullPath)?.failedTime ?? 0
+  return route.paths.find(p => p.path === currentRoute.value.fullPath)?.reasons.length ?? 0
 })
 
 function navigateToRoute (route: string) {

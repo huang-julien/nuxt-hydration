@@ -1,4 +1,5 @@
-import { ROUTE_TYPE, RouteHydrationInfo, RouteWithParam, ServerData } from '../../types'
+import { ROUTE_TYPE, Reason } from '../../types/reason'
+import { ServerData, RouteWithParam, RouteHydrationInfo, PathInfo } from '../../types/rpc'
 
 export const data: ServerData = {
   routes: []
@@ -19,7 +20,7 @@ export function safeGetRoute (route: string, path: string): RouteHydrationInfo {
       ? {
           route,
           type: ROUTE_TYPE.WITHOUT_PARAMS,
-          failedTime: 0
+          reasons: []
         }
       : {
           route,
@@ -34,20 +35,20 @@ export function safeGetRoute (route: string, path: string): RouteHydrationInfo {
   return routeData
 }
 
-export function incrementFailure (route: string, path: string) {
+export function incrementFailure (route: string, path: string, reason: Reason = { reason: 'unknown' }) {
   const data = safeGetRoute(route, path)
   if (data.type === ROUTE_TYPE.WITH_PARAMS) {
     const pathInfo = data.paths.find(p => p.path === path)
     if (!pathInfo) {
-      const info = {
-        failedTime: 1,
-        path
+      const info: PathInfo = {
+        path,
+        reasons: [reason]
       }
       data.paths.push(info)
     } else {
-      pathInfo.failedTime++
+      pathInfo.reasons.push(reason)
     }
   } else {
-    data.failedTime++
+    data.reasons.push(reason)
   }
 }
