@@ -3,10 +3,21 @@
     <template #text>
       <p>Route: <span class="font-bold">{{ routeInfo.route }}</span> -- Hydration failed time : {{ totalFailedTime }} </p>
     </template>
-    <template v-if="routeInfo.paths.length">
+    <RouteTestPathParam :route="routeInfo.route">
+      <template #default="{testPath, isTesting}">
+        <NButton class="ml-auto" :disabled="isTesting" @click="testPath">
+          <span v-if="!isTesting">
+            Test
+          </span>
+          <Icon v-else name="line-md:loading-twotone-loop" />
+        </NButton>
+      </template>
+    </RouteTestPathParam>
+
+    <div class="mt-3" v-if="routeInfo.paths.length">
       <RouteListItemWithParamsItem v-for="path in routeInfo.paths" :key="path.path" class="flex justify-between w-full pl-5 my-2" :route="path" />
-    </template>
-    <p v-else ml-5>
+    </div>
+    <p class="mt-3" v-else ml-5>
       There's no path available, try to test a page that satisfies {{ routeInfo.route }}
     </p>
   </NSectionBlock>
@@ -14,7 +25,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { RouteWithParam } from '~/../src/runtime/devtools/types'
+import { RouteWithParam } from '~/../src/runtime/types/rpc'
 
 const props = defineProps<{
   routeInfo: RouteWithParam

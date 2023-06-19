@@ -7,13 +7,13 @@
       </p>
     </div>
     <div flex justify-between gap>
-      <NButton class="h-fit" :disabled="isTesting" @click.stop="() => testPath(route.path)">
+      <NButton class="h-fit text-sm" :disabled="isTesting" @click.stop="() => testPath(route.path)">
         <span v-if="!isTesting">
-          Test
+          Test again
         </span>
         <Icon v-else name="line-md:loading-twotone-loop" />
       </NButton>
-      <NButton class="h-fit" ml-5 @click.stop="reset(route.path)">
+      <NButton class="h-fit text-sm" ml-5 @click.stop="reset(route.path)">
         Reset
       </NButton>
     </div>
