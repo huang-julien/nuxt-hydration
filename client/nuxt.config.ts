@@ -22,5 +22,12 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/__hydration_client'
   },
-  ssr: false
+  ssr: false,
+  vite: {
+    vue: {
+      script: {
+        defineModel: true
+      }
+    }
+  }
 })

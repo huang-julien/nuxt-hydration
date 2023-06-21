@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { RouteInfo } from '~/../src/runtime/devtools/types'
+import { RouteInfo } from '~/../src/runtime/types/rpc'
 import useRpc from '~/composables/useRpc'
 import useTestHydration from '~/composables/useTestHydration'
 import { navigateToRoute } from '~/utils/navigation'
