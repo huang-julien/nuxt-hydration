@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <div class="flex items-center">
-      <template v-for="(p, index) of routeParts" :key="props.route + p + index">
+      <div v-for="(p, index) of routeParts" :key="props.route + p + index">
         <span class="text-lg">/</span>
         <span
           v-if="!p.isParam"
@@ -17,7 +17,14 @@
           class="border my-auto mt-2 h-fit text-sm px-1 mx-1 rounded min-w-[15px] border-dashed"
           :placeholder="p.name"
         />
-      </template>
+      </div>
+      ?
+      <ContentEditable
+        v-model="query"
+        html-tag="span"
+        class="border my-auto mt-2 h-fit text-sm px-1 mx-1 rounded min-w-[15px] border-dashed"
+        placeholder="query"
+      />
     </div>
     <slot :route-parts="routeParts" :is-testing="isTesting" :test-path="testRoute" />
   </div>
@@ -32,6 +39,7 @@ const props = defineProps<{
 }>()
 
 const { testPath, isTesting } = useTestHydration()
+const query = ref('')
 
 function getRoutePortion () {
   const splitted = props.route.substring(1).split('/')
@@ -47,6 +55,6 @@ const routeParts = ref(getRoutePortion())
 function testRoute () {
   const parts = routeParts.value.map(part => part.isParam ? part.input : part.name)
 
-  testPath('/' + parts.join('/'))
+  testPath('/' + parts.join('/'), query.value)
 }
 </script>

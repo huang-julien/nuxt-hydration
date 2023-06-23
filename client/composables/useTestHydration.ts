@@ -3,8 +3,12 @@ import { ref } from 'vue'
 export default function useTestHydration () {
   const isTesting = ref(false)
 
-  function testPath (path: string) {
+  function testPath (path: string, query?: string) {
     isTesting.value = true
+
+    if (query) {
+      path = path + '?' + query
+    }
 
     const iframe = document.createElement('iframe')
     iframe.src = path
