@@ -35,7 +35,7 @@ watch(hydrationFailed, () => {
 })
 </script>
 
-<style scoped>
+<style>
 #nuxt-hydration-container {
   background-color: rgb(255, 0, 0, 0.7);
   border-radius: 0.5em;
