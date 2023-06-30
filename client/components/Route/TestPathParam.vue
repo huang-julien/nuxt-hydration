@@ -14,6 +14,7 @@
           v-else
           v-model="p.input"
           html-tag="span"
+          border-base
           class="border my-auto mt-2 h-fit text-sm px-1 mx-1 rounded min-w-[15px] border-dashed"
           :placeholder="p.name"
         />

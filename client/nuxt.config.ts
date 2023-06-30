@@ -3,8 +3,7 @@ import { resolve } from 'pathe'
 export default defineNuxtConfig({
   modules: [
     '@nuxt/devtools-ui-kit',
-    'nuxt-icon',
-    '@nuxtjs/tailwindcss'
+    'nuxt-icon'
   ],
   nitro: {
     output: {
