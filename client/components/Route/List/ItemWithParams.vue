@@ -15,7 +15,7 @@
           <div p-1>
             <RouteTestPathParam :route="routeInfo.route">
               <template #default="{testPath, isTesting}">
-                <NButton class="ml-auto" :disabled="isTesting" @click="testPath">
+                <NButton class="ml-auto text-sm" :disabled="isTesting" @click="testPath">
                   <span v-if="!isTesting">
                     Test
                   </span>

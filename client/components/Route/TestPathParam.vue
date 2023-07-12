@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <div class="flex items-center">
+    <div class="flex items-center pb-2">
       <template v-for="(p, index) of routeParts" :key="props.route + p + index">
         <span class="text-lg">/</span>
         <span
