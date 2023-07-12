@@ -3,11 +3,11 @@ import { ref } from 'vue'
 export default function useTestHydration () {
   const isTesting = ref(false)
 
-  function testPath (path: string) {
+  function testPath (path: string, query?: string) {
     isTesting.value = true
 
     const iframe = document.createElement('iframe')
-    iframe.src = path
+    iframe.src = query ? path + '?' + query : path
     iframe.width = '0'
     iframe.height = '0'
     const listener = (e: Event) => {
