@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <div class="flex items-center">
+    <div class="flex items-center pb-2">
       <template v-for="(p, index) of routeParts" :key="props.route + p + index">
         <span class="text-lg">/</span>
         <span
@@ -19,6 +19,11 @@
           :placeholder="p.name"
         />
       </template>
+      ? <ContentEditable
+        v-model="query"
+        placeholder="query"
+        class="border my-auto mt-2 h-fit text-sm px-1 mx-1 rounded min-w-[15px] border-dashed"
+      />
     </div>
     <slot :route-parts="routeParts" :is-testing="isTesting" :test-path="testRoute" />
   </div>
@@ -45,9 +50,12 @@ function getRoutePortion () {
 
 const routeParts = ref(getRoutePortion())
 
+const query = ref('')
+
 function testRoute () {
   const parts = routeParts.value.map(part => part.isParam ? part.input : part.name)
 
-  testPath('/' + parts.join('/'))
+  testPath('/' + parts.join('/'), query.value)
 }
+
 </script>
