@@ -46,7 +46,6 @@ export default defineNuxtPlugin({
 
     // create the container div
     const containerNode = document.createElement('div')
-    containerNode.id = 'nuxt-hydration-container'
     document.body.appendChild(containerNode)
 
     // create the app
