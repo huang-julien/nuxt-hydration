@@ -66,6 +66,9 @@ importers:
       html-validate:
         specifier: ^7.18.0
         version: 7.18.1
+      magic-string:
+        specifier: ^0.30.1
+        version: 0.30.1
       nuxt:
         specifier: ^3.5.1
         version: 3.5.3(@types/node@20.3.1)(eslint@8.43.0)(rollup@3.25.1)(typescript@5.1.3)
@@ -75,6 +78,9 @@ importers:
       playwright:
         specifier: ^1.34.0
         version: 1.35.1
+      unplugin:
+        specifier: ^1.4.0
+        version: 1.4.0
       unstorage:
         specifier: ^1.6.0
         version: 1.7.0
@@ -1315,7 +1321,7 @@ packages:
       get-port-please: 3.0.1
       h3: 1.7.0
       knitwork: 1.0.0
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       mlly: 1.4.0
       ohash: 1.1.2
       pathe: 1.1.1
@@ -1328,7 +1334,7 @@ packages:
       std-env: 3.3.3
       strip-literal: 1.0.1
       ufo: 1.1.2
-      unplugin: 1.3.1
+      unplugin: 1.4.0
       vite: 4.3.9(@types/node@20.3.1)
       vite-node: 0.31.4(@types/node@20.3.1)
       vite-plugin-checker: 0.6.1(eslint@8.43.0)(typescript@5.1.3)(vite@4.3.9)
@@ -2015,7 +2021,7 @@ packages:
       colorette: 2.0.20
       consola: 3.1.0
       fast-glob: 3.2.12
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       pathe: 1.1.1
       perfect-debounce: 1.0.0
     transitivePeerDependencies:
@@ -2082,7 +2088,7 @@ packages:
       '@unocss/core': 0.52.7
       css-tree: 2.3.1
       fast-glob: 3.2.12
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       postcss: 8.4.24
     dev: true
 
@@ -2197,7 +2203,7 @@ packages:
       '@unocss/transformer-directives': 0.52.7
       chokidar: 3.5.3
       fast-glob: 3.2.12
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       vite: 4.3.9(@types/node@20.3.1)
     transitivePeerDependencies:
       - rollup
@@ -2214,8 +2220,8 @@ packages:
       '@unocss/core': 0.52.7
       chokidar: 3.5.3
       fast-glob: 3.2.12
-      magic-string: 0.30.0
-      unplugin: 1.3.1
+      magic-string: 0.30.1
+      unplugin: 1.4.0
       webpack: 5.88.1
       webpack-sources: 3.2.3
     transitivePeerDependencies:
@@ -2287,7 +2293,7 @@ packages:
   /@vitest/snapshot@0.31.4:
     resolution: {integrity: sha512-LemvNumL3NdWSmfVAMpXILGyaXPkZbG5tyl6+RQSdcHnTj6hvA49UAI8jzez9oQyE/FWLKRSNqTGzsHuk89LRA==}
     dependencies:
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       pathe: 1.1.1
       pretty-format: 27.5.1
     dev: true
@@ -2368,7 +2374,7 @@ packages:
       '@vue/reactivity-transform': 3.3.4
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       postcss: 8.4.24
       source-map-js: 1.0.2
 
@@ -2388,7 +2394,7 @@ packages:
       '@vue/compiler-core': 3.3.4
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
-      magic-string: 0.30.0
+      magic-string: 0.30.1
 
   /@vue/reactivity@3.3.4:
     resolution: {integrity: sha512-kLTDLwd0B1jG08NBF3R5rqULtv/f8x3rOFByTDz4J53ttIQEDmALqKqXY0J+XQeN0aV2FBxY8nJDf88yvOPAqQ==}
@@ -5603,7 +5609,7 @@ packages:
     resolution: {integrity: sha512-P53AZrzq7hclCU6HWj88xNZHmP15DKjMmK/vBytO1qnpYP3ul4IEZlyCE0aU3JRnmgWmZPmoTKj4Bls7v0pMyA==}
     engines: {node: '>=14.19.0'}
     dependencies:
-      magic-string: 0.30.0
+      magic-string: 0.30.1
 
   /magic-string@0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
@@ -5611,8 +5617,8 @@ packages:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /magic-string@0.30.0:
-    resolution: {integrity: sha512-LA+31JYDJLs82r2ScLrlz1GjSgu66ZV518eyWT+S8VhyQn/JL0u9MeBOvQMGYiPk1DBiSN9DDMOcXvigJZaViQ==}
+  /magic-string@0.30.1:
+    resolution: {integrity: sha512-mbVKXPmS0z0G4XqFDCTllmDQ6coZzn94aMlb0o/A4HEHJCKcanlDZwYJgwnkmgD3jyWhUgj9VsPrfd972yPffA==}
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
@@ -5956,7 +5962,7 @@ packages:
       klona: 2.0.6
       knitwork: 1.0.0
       listhen: 1.0.4
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       mime: 3.0.0
       mlly: 1.4.0
       mri: 1.2.0
@@ -6246,7 +6252,7 @@ packages:
       klona: 2.0.6
       knitwork: 1.0.0
       local-pkg: 0.4.3
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       mlly: 1.4.0
       nitropack: 2.5.1
       nuxi: 3.5.3
@@ -6264,7 +6270,7 @@ packages:
       unctx: 2.3.1
       unenv: 1.5.1
       unimport: 3.0.8(rollup@3.25.1)
-      unplugin: 1.3.1
+      unplugin: 1.4.0
       unplugin-vue-router: 0.6.4(rollup@3.25.1)(vue-router@4.2.2)(vue@3.3.4)
       untyped: 1.3.2
       vue: 3.3.4
@@ -7197,7 +7203,7 @@ packages:
       rollup: ^3.0.0
       typescript: ^4.1 || ^5.0
     dependencies:
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       rollup: 3.25.1
       typescript: 5.1.3
     optionalDependencies:
@@ -7936,7 +7942,7 @@ packages:
       globby: 13.2.0
       hookable: 5.5.3
       jiti: 1.18.2
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       mkdist: 1.2.0(typescript@5.1.3)
       mlly: 1.4.0
       mri: 1.2.0
@@ -7969,8 +7975,8 @@ packages:
     dependencies:
       acorn: 8.9.0
       estree-walker: 3.0.3
-      magic-string: 0.30.0
-      unplugin: 1.3.1
+      magic-string: 0.30.1
+      unplugin: 1.4.0
 
   /undici@5.22.1:
     resolution: {integrity: sha512-Ji2IJhFXZY0x/0tVBXeQwgPlLWw13GVzpsWPQ3rV50IFMMof2I55PZZxtm4P6iNq+L5znYN9nSTAq0ZyE6lSJw==}
@@ -8002,13 +8008,13 @@ packages:
       escape-string-regexp: 5.0.0
       fast-glob: 3.2.12
       local-pkg: 0.4.3
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       mlly: 1.4.0
       pathe: 1.1.1
       pkg-types: 1.0.3
       scule: 1.0.0
       strip-literal: 1.0.1
-      unplugin: 1.3.1
+      unplugin: 1.4.0
     transitivePeerDependencies:
       - rollup
 
@@ -8086,15 +8092,15 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
       scule: 1.0.0
-      unplugin: 1.3.1
+      unplugin: 1.4.0
       vue-router: 4.2.2(vue@3.3.4)
       yaml: 2.3.1
     transitivePeerDependencies:
       - rollup
       - vue
 
-  /unplugin@1.3.1:
-    resolution: {integrity: sha512-h4uUTIvFBQRxUKS2Wjys6ivoeofGhxzTe2sRWlooyjHXVttcVfV/JiavNd3d4+jty0SVV0dxGw9AkY9MwiaCEw==}
+  /unplugin@1.4.0:
+    resolution: {integrity: sha512-5x4eIEL6WgbzqGtF9UV8VEC/ehKptPXDS6L2b0mv4FRMkJxRtjaJfOWDd6a8+kYbqsjklix7yWP0N3SUepjXcg==}
     dependencies:
       acorn: 8.9.0
       chokidar: 3.5.3
@@ -8332,7 +8338,7 @@ packages:
       '@vue/compiler-dom': 3.3.4
       esno: 0.16.3
       kolorist: 1.8.0
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       shell-quote: 1.8.1
       vite: 4.3.9(@types/node@20.3.1)
     transitivePeerDependencies:
@@ -8417,7 +8423,7 @@ packages:
       concordance: 5.0.4
       debug: 4.3.4
       local-pkg: 0.4.3
-      magic-string: 0.30.0
+      magic-string: 0.30.1
       pathe: 1.1.1
       picocolors: 1.0.0
       playwright: 1.35.1

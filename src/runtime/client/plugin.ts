@@ -1,4 +1,4 @@
-import { defineNuxtPlugin, useState } from '#app'
+import { defineNuxtPlugin, onNuxtReady, useState } from '#app'
 import { LogObject, consola } from 'consola'
 import { createApp } from 'vue'
 import { hydrationMessages } from '../utils'
@@ -27,10 +27,22 @@ export default defineNuxtPlugin({
     }
 
     // if it is a testing iframe, ping the devtool parent to remove this app
-    nuxt.hook('app:suspense:resolve', () => {
+    nuxt.hook('app:suspense:resolve', async () => {
+      await nuxt.callHook('nuxt-hydration:component-hydration', [])
       if (window.parent) {
         window.parent.postMessage('__nuxt__hydration', '*')
       }
+    })
+
+    onNuxtReady(() => {
+      // create the container div
+      const containerNode = document.createElement('div')
+      containerNode.id = 'nuxt-hydration-container'
+      document.body.appendChild(containerNode)
+
+      // create the app
+      const app = createApp(Container)
+      app.mount(containerNode)
     })
 
     consola.addReporter(
@@ -43,14 +55,5 @@ export default defineNuxtPlugin({
       })
 
     consola.wrapConsole()
-
-    // create the container div
-    const containerNode = document.createElement('div')
-    containerNode.id = 'nuxt-hydration-container'
-    document.body.appendChild(containerNode)
-
-    // create the app
-    const app = createApp(Container)
-    app.mount(containerNode)
   }
 })
