@@ -28,6 +28,7 @@ export function useComponentHydration (filePath: string) {
       if (filePath.includes('nuxt-root')) { return }
 
       if (isHydrationMismatched && !VNodeChildrenHasMismatch(instance.vnode)) {
+        instance.vnode.el!.style.border = '2px solid red'
         list.push({
           path: filePath
         })
