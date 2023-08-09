@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="nuxt-hydration-container">
     <Transition name="fade">
       <div
         v-if="state"
@@ -36,7 +36,7 @@ watch(hydrationFailed, () => {
 </script>
 
 <style>
-#nuxt-hydration-container {
+#nuxt-hydration-warn {
   background-color: rgb(255, 0, 0, 0.7);
   border-radius: 0.5em;
   color: white;
