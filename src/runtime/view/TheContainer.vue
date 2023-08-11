@@ -26,7 +26,7 @@ import Reason from './Reason.vue'
 import { useState } from '#imports'
 
 const hydrationFailed = useState('hydration-failed', () => false)
-const state = ref(false)
+const state = ref(hydrationFailed.value)
 
 watch(hydrationFailed, () => {
   if (hydrationFailed.value) {
