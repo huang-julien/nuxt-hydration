@@ -1,20 +1,20 @@
 <template>
   <div id="nuxt-hydration-container">
     <Transition name="fade">
-      <div
-        v-if="state"
-        id="nuxt-hydration-warn"
-        class="bg-red "
-      >
+      <div v-if="state" id="nuxt-hydration-warn" class="bg-red ">
         <p>
           Hey ! there might be an issue with hydration ! Check your console or the devtools !
         </p>
         <Reason />
-        <button
-          @click="state = false"
-        >
+        <div class="actions">
+
+          <button @click="showComponent = !showComponent">
+          toggle hydration failed components
+        </button>
+        <button @click="state = false">
           Close
         </button>
+        </div>
       </div>
     </Transition>
   </div>
@@ -22,11 +22,13 @@
 
 <script setup lang="ts">
 import { watch, ref } from 'vue'
+import { USESTATE_SHOW_KEY } from '../client/const'
 import Reason from './Reason.vue'
 import { useState } from '#imports'
 
 const hydrationFailed = useState('hydration-failed', () => false)
 const state = ref(hydrationFailed.value)
+const showComponent = useState(USESTATE_SHOW_KEY, () => true)
 
 watch(hydrationFailed, () => {
   if (hydrationFailed.value) {
@@ -53,5 +55,11 @@ button {
   color: white;
   border-radius: 0.2em;
   cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 </style>
