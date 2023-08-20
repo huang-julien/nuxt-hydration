@@ -30,6 +30,8 @@
   },
   "dependencies": {
     "@nuxt/devtools-kit": "^0.8.0",
+    "@vueuse/components": "^10.3.0",
+    "@vueuse/core": "^10.3.0",
     "defu": "^6.1.2",
     "h3": "^1.6.6",
     "sirv": "^2.0.3"
