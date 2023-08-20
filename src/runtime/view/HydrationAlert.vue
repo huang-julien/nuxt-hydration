@@ -1,20 +1,25 @@
 <template>
   <div id="nuxt-hydration-container">
     <Transition name="fade">
-      <div v-if="state" id="nuxt-hydration-warn" class="bg-red ">
+      <div v-if="state" id="nuxt-hydration-warn">
         <p class="title">
           <b>nuxt-hydration</b>
         </p>
-        <p>
-          Hey ! there might be an issue with hydration ! Check your console or the devtools !
+        <template v-if="hydrationFailed">
+          <p>
+            Hey ! there might be an issue with hydration ! Check your console or the devtools !
+          </p>
+          <Reason v-if="hydrationFailed" />
+        </template>
+        <p v-else>
+          Everything's ok !
         </p>
-        <Reason />
         <div class="actions">
-          <button title="toggle mismatched borders" class="rounded"  @click="showComponent = !showComponent">
-            <svg :style="showComponent && 'color: green;'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+          <button title="toggle mismatched borders" class="rounded" @click="showComponent = !showComponent">
+            <svg :style="showComponent && 'color: green;'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z" /></svg>
           </button>
           <button title="close" class="rounded" @click="state = false">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z" /></svg>
           </button>
         </div>
       </div>
@@ -71,7 +76,7 @@ button {
 }
 
 button:hover {
-  background-color: #e1e1e1; 
+  background-color: #e1e1e1;
   transition: all 0.2s ease-in-out;
 }
 
@@ -85,7 +90,7 @@ button.rounded{
 }
 
 .actions {
-  display: flex; 
+  display: flex;
   gap: 0.5em;
   width: 100%;
 }
