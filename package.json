@@ -42,7 +42,6 @@
     "@nuxt/module-builder": "^0.4.0",
     "@nuxt/schema": "^3.5.1",
     "@nuxt/test-utils": "^3.5.1",
-    "@nuxthq/ui": "^2.7.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "birpc": "^0.2.11",
     "changelogen": "^0.5.0",
@@ -57,8 +56,5 @@
     "unplugin": "^1.4.0",
     "unstorage": "^1.6.0",
     "vitest": "^0.31.0"
-  },
-  "resolutions": {
-    "consola": "^3.1.0"
   }
 }
