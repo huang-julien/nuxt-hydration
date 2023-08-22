@@ -2,7 +2,7 @@ import { defineNuxtPlugin, onNuxtReady, useState } from '#app'
 import { LogObject, consola } from 'consola'
 import { createApp } from 'vue'
 import { hydrationMessages } from '../utils'
-import Container from '../view/TheContainer.vue'
+import Container from '../view/Client.vue'
 import { getHtmlValidatorReason } from './reason/html-validator'
 
 export default defineNuxtPlugin({
