@@ -1,4 +1,4 @@
-import { defineNuxtModule, addPlugin, createResolver, addServerPlugin, addBuildPlugin } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin, createResolver, addServerPlugin, addBuildPlugin, addTemplate } from '@nuxt/kit'
 import sirv from 'sirv'
 import defu from 'defu'
 import initServer from './runtime/devtools/server/init'
@@ -17,6 +17,11 @@ export default defineNuxtModule({
     addPlugin({ mode: 'client', src: resolver.resolve('./runtime/client/plugin') })
 
     addBuildPlugin(SFCComponentHydrationPlugin)
+
+    addTemplate({
+      filename: 'nuxt-hydration-composables.mjs',
+      src: resolver.resolve('./runtime/client/composables/component-hydration.mjs')
+    })
 
     nuxt.hook('vite:serverCreated', (server) => {
       server.middlewares.use('/__hydration_client', sirv(resolver.resolve('./client'), { single: true, dev: true }))

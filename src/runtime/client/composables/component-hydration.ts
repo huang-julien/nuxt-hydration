@@ -1,7 +1,6 @@
 import { getFragmentHTML } from '#app/components/utils'
 import { useNuxtApp, useState } from '#app'
 import { getCurrentInstance, onMounted, VNode, isVNode, watch } from 'vue'
-import { USESTATE_SHOW_KEY } from '../const'
 
 type ExtendedVnode = VNode & { __hydrationMismatched?: boolean }
 
@@ -10,7 +9,7 @@ const BORDER_STYLE = '2px solid red'
 export function useComponentHydration (filePath: string) {
   if (process.server) { return }
 
-  const showComponentHydration = useState(USESTATE_SHOW_KEY, () => true)
+  const showComponentHydration = useState('nuxt-hydration_show-component', () => true)
   const instance = getCurrentInstance()!
   const app = useNuxtApp()
   if (app.isHydrating) {
