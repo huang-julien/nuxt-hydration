@@ -17,7 +17,7 @@ export const SFCComponentHydrationPlugin = createUnplugin(() => {
         if (!tag.includes('setup')) { return _full }
 
         return `<${tag}>
-import { useComponentHydration } from "#build/nuxt-hydration-composables.mjs";
+import { useComponentHydration } from "#build/nuxt-hydration-composables";
 useComponentHydration(${JSON.stringify(id)});
             
 ${content}

@@ -9,7 +9,7 @@ export default defineNuxtModule({
     name: 'nuxt-hydration-checker'
   },
   defaults: {},
-  setup (_, nuxt) {
+  async setup (_, nuxt) {
     if (!nuxt.options.dev) { return }
 
     const resolver = createResolver(import.meta.url)
@@ -19,8 +19,8 @@ export default defineNuxtModule({
     addBuildPlugin(SFCComponentHydrationPlugin)
 
     addTemplate({
-      filename: 'nuxt-hydration-composables.mjs',
-      src: resolver.resolve('./runtime/client/composables/component-hydration.mjs')
+      filename: 'nuxt-hydration-composables.ts',
+      src: await resolver.resolvePath('./runtime/client/composables/component-hydration')
     })
 
     nuxt.hook('vite:serverCreated', (server) => {
