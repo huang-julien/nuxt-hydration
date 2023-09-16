@@ -28,7 +28,7 @@ export function useComponentHydration (filePath: string) {
     })
 
     watch(showComponentHydration, (show) => {
-      if (instance.vnode.el) {
+      if (instance.vnode.el && (instance.vnode as ExtendedVnode).__hydrationMismatched) {
         instance.vnode.el.style = instance.vnode.el.style || {}
         instance.vnode.el.style.border = show ? BORDER_STYLE : null
       }
@@ -63,6 +63,7 @@ export function useComponentHydration (filePath: string) {
       for (const child of subtree.children) {
         if (isVNode(child)) {
           if ((child as ExtendedVnode).__hydrationMismatched) {
+            console.log(child)
             return true
           }
           if (child.component && child.component.subTree) {
