@@ -5,6 +5,8 @@
 ## Feature
 
 - Make sure you are aware when there's a hydration issue
+  - hint which components mismatched
+    ![hydration-gif](./.github/hydration.gif)
 - `@nuxt/devtools` integration
 
 ## integrations
