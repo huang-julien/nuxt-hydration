@@ -28,7 +28,7 @@ export function useComponentHydration (filePath: string) {
     })
 
     watch(showComponentHydration, (show) => {
-      if (instance.vnode.el && (instance.vnode as ExtendedVnode).__hydrationMismatched) {
+      if (instance.vnode.el && isHydrationMismatched && !VNodeChildrenHasMismatch(instance.vnode)) {
         instance.vnode.el.style = instance.vnode.el.style || {}
         instance.vnode.el.style.border = show ? BORDER_STYLE : null
       }
