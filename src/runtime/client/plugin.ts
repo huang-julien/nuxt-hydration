@@ -28,7 +28,11 @@ export default defineNuxtPlugin({
 
     // if it is a testing iframe, ping the devtool parent to remove this app
     nuxt.hook('app:suspense:resolve', async () => {
-      await nuxt.callHook('nuxt-hydration:component-hydration', [])
+      const list: { path: string }[] = []
+      await nuxt.callHook('nuxt-hydration:component-hydration', list)
+      if (list.length > 0) {
+        hydrationFailed.value = true
+      }
       if (window.parent) {
         window.parent.postMessage('__nuxt__hydration', '*')
       }
