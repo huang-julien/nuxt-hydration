@@ -1,6 +1,6 @@
 import { getFragmentHTML } from '#app/components/utils'
 import { useNuxtApp, useState } from '#app'
-import { getCurrentInstance, onMounted, VNode, isVNode, watch } from 'vue'
+import { getCurrentInstance, onMounted, VNode, isVNode, watch, onBeforeUnmount } from 'vue'
 
 type ExtendedVnode = VNode & { __hydrationMismatched?: boolean }
 
@@ -34,7 +34,7 @@ export function useComponentHydration (filePath: string) {
       }
     })
 
-    app.hook('nuxt-hydration:component-hydration', (list) => {
+    const unsub = app.hook('nuxt-hydration:component-hydration', (list) => {
       if (filePath.includes('nuxt-root')) { return }
 
       if (isHydrationMismatched && !VNodeChildrenHasMismatch(instance.vnode)) {
@@ -44,6 +44,8 @@ export function useComponentHydration (filePath: string) {
         })
       }
     })
+
+    onBeforeUnmount(() => unsub())
   }
 
   function VNodeChildrenHasMismatch (vnode: VNode) {
