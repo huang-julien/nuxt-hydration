@@ -39,7 +39,7 @@
     "sirv": "^2.0.3"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^0.8.0",
+    "@nuxt/devtools": "^1.0.0",
     "@nuxt/devtools-ui-kit": "^0.8.0",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/kit": "^3.8.1",
