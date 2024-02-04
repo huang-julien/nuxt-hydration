@@ -70,8 +70,8 @@ importers:
         specifier: ^8.40.0
         version: 8.40.0
       floating-vue:
-        specifier: ^2.0.0
-        version: 2.0.0(@nuxt/kit@3.10.0)(vue@3.4.15)
+        specifier: ^5.0.0
+        version: 5.2.2(@nuxt/kit@3.10.0)(vue@3.4.15)
       html-validate:
         specifier: ^8.9.1
         version: 8.9.1(vitest@1.2.2)
@@ -5707,8 +5707,8 @@ packages:
   /flatted@3.2.9:
     resolution: {integrity: sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==}
 
-  /floating-vue@2.0.0(@nuxt/kit@3.10.0)(vue@3.4.15):
-    resolution: {integrity: sha512-YSffLYOjoaaPPBZc7VQR2qMCQ7xeXuh7i8a2u8WOdSmkjTtKtZpj2aaJnLtZRHmehrMHyCgtSxLu8jFNNX2sVw==}
+  /floating-vue@5.2.2(@nuxt/kit@3.10.0)(vue@3.4.15):
+    resolution: {integrity: sha512-afW+h2CFafo+7Y9Lvw/xsqjaQlKLdJV7h1fCHfcYQ1C4SVMlu7OAekqWgu5d4SgvkBVU0pVpLlVsrSTBURFRkg==}
     peerDependencies:
       '@nuxt/kit': ^3.2.0
       vue: ^3.2.0
