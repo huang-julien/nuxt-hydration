@@ -70,8 +70,8 @@ importers:
         specifier: ^8.40.0
         version: 8.40.0
       floating-vue:
-        specifier: 2.0.0-beta.24
-        version: 2.0.0-beta.24(@nuxt/kit@3.8.1)(vue@3.3.8)
+        specifier: 2.0.0
+        version: 2.0.0(@nuxt/kit@3.8.1)(vue@3.3.8)
       html-validate:
         specifier: ^7.18.0
         version: 7.18.0
@@ -435,6 +435,7 @@ packages:
   /@babel/highlight@7.22.20:
     resolution: {integrity: sha512-dkdMCN3py0+ksCgYmGG8jKeGA/8Tk+gJwSYYlFGxG5lmhfKNoAy004YpLxpS1W2J8m/EK2Ew+yOs9pVRwO89mg==}
     engines: {node: '>=6.9.0'}
+    requiresBuild: true
     dependencies:
       '@babel/helper-validator-identifier': 7.22.20
       chalk: 2.4.2
@@ -5223,8 +5224,8 @@ packages:
   /flatted@3.2.9:
     resolution: {integrity: sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==}
 
-  /floating-vue@2.0.0-beta.24(@nuxt/kit@3.8.1)(vue@3.3.8):
-    resolution: {integrity: sha512-URSzP6YXaF4u1oZ9XGL8Sn8puuM7ivp5jkOUrpy5Q1mfo9BfGppJOn+ierTmsSUfJEeHBae8KT7r5DeI3vQIEw==}
+  /floating-vue@2.0.0(@nuxt/kit@3.8.1)(vue@3.3.8):
+    resolution: {integrity: sha512-YSffLYOjoaaPPBZc7VQR2qMCQ7xeXuh7i8a2u8WOdSmkjTtKtZpj2aaJnLtZRHmehrMHyCgtSxLu8jFNNX2sVw==}
     peerDependencies:
       '@nuxt/kit': ^3.2.0
       vue: ^3.2.0

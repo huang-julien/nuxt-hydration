@@ -51,7 +51,7 @@
     "changelogen": "^0.5.0",
     "consola": "^3.1.0",
     "eslint": "^8.40.0",
-    "floating-vue": "2.0.0-beta.24",
+    "floating-vue": "2.0.0",
     "html-validate": "^7.18.0",
     "nuxt": "^3.8.1",
     "nuxt-icon": "^0.5.0",
