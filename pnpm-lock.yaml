@@ -73,8 +73,8 @@ importers:
         specifier: 2.0.0-beta.24
         version: 2.0.0-beta.24(@nuxt/kit@3.8.1)(vue@3.3.8)
       html-validate:
-        specifier: ^7.18.0
-        version: 7.18.0
+        specifier: ^8.0.0
+        version: 8.9.1(vitest@0.31.0)
       nuxt:
         specifier: ^3.8.1
         version: 3.8.1(eslint@8.40.0)(rollup@3.28.0)(typescript@5.2.2)(vite@4.5.0)
@@ -2352,6 +2352,17 @@ packages:
       ajv: 4.11.8 - 8
     dependencies:
       '@babel/code-frame': 7.22.10
+      ajv: 8.12.0
+      chalk: 4.1.2
+    dev: true
+
+  /@sidvind/better-ajv-errors@2.1.3(ajv@8.12.0):
+    resolution: {integrity: sha512-lWuod/rh7Xz5uXiEGSfm2Sd5PG7K/6yJfoAZVqzsEswjPJhUz15R7Gn/o8RczA041QS15hBd/BCSeu9vwPArkA==}
+    engines: {node: '>= 16.14'}
+    peerDependencies:
+      ajv: 4.11.8 - 8
+    dependencies:
+      '@babel/code-frame': 7.22.13
       ajv: 8.12.0
       chalk: 4.1.2
     dev: true
@@ -5639,37 +5650,6 @@ packages:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
     engines: {node: '>=8'}
 
-  /html-validate@7.18.0:
-    resolution: {integrity: sha512-Ul8tPbrcpcV4XXx8aoWhx9ISRy0uCdhXyOz0MnnXt5IQ7sEyQFJJdY61Oysl8PKjE7JiR7SfLeyISPvQY8oS9Q==}
-    engines: {node: '>= 14.0'}
-    hasBin: true
-    peerDependencies:
-      jest: ^25.1 || ^26 || ^27.1 || ^28.1.3 || ^29.0.3
-      jest-diff: ^25.1 || ^26 || ^27.1 || ^28.1.3 || ^29.0.3
-      jest-snapshot: ^25.1 || ^26 || ^27.1 || ^28.1.3 || ^29.0.3
-    peerDependenciesMeta:
-      jest:
-        optional: true
-      jest-diff:
-        optional: true
-      jest-snapshot:
-        optional: true
-    dependencies:
-      '@babel/code-frame': 7.22.10
-      '@html-validate/stylish': 4.2.0
-      '@sidvind/better-ajv-errors': 2.1.0(ajv@8.12.0)
-      acorn-walk: 8.2.0
-      ajv: 8.12.0
-      deepmerge: 4.3.1
-      espree: 9.6.1
-      glob: 10.3.3
-      ignore: 5.2.4
-      kleur: 4.1.5
-      minimist: 1.2.8
-      prompts: 2.4.2
-      semver: 7.5.4
-    dev: true
-
   /html-validate@7.18.1:
     resolution: {integrity: sha512-K5jb0h/xAoeR8sJqyR0n/QaKL7rdT88sPCtN+Pvtyn5JUU+nidQe2gBB09WRzPTcQtPXBj4QxBUH5IA2tt8JQg==}
     engines: {node: '>= 14.0'}
@@ -5699,6 +5679,39 @@ packages:
       minimist: 1.2.8
       prompts: 2.4.2
       semver: 7.5.4
+    dev: true
+
+  /html-validate@8.9.1(vitest@0.31.0):
+    resolution: {integrity: sha512-2tWa2FtFALooZ5wMDbY+HS0BieoiRfS5IeiG2XeM6bb3Jx4dmN1HFPFt0v3j7r3SpNxEVKiXYLdkBZI3kkca/g==}
+    engines: {node: '>= 16.14'}
+    hasBin: true
+    peerDependencies:
+      jest: ^27.1 || ^28.1.3 || ^29.0.3
+      jest-diff: ^27.1 || ^28.1.3 || ^29.0.3
+      jest-snapshot: ^27.1 || ^28.1.3 || ^29.0.3
+      vitest: ^0.34 || ^1
+    peerDependenciesMeta:
+      jest:
+        optional: true
+      jest-diff:
+        optional: true
+      jest-snapshot:
+        optional: true
+      vitest:
+        optional: true
+    dependencies:
+      '@babel/code-frame': 7.22.13
+      '@html-validate/stylish': 4.2.0
+      '@sidvind/better-ajv-errors': 2.1.3(ajv@8.12.0)
+      ajv: 8.12.0
+      deepmerge: 4.3.1
+      glob: 10.3.10
+      ignore: 5.3.0
+      kleur: 4.1.5
+      minimist: 1.2.8
+      prompts: 2.4.2
+      semver: 7.5.4
+      vitest: 0.31.0(playwright@1.34.0)
     dev: true
 
   /http-cache-semantics@4.1.1:
@@ -5777,6 +5790,11 @@ packages:
   /ignore@5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
     engines: {node: '>= 4'}
+
+  /ignore@5.3.0:
+    resolution: {integrity: sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==}
+    engines: {node: '>= 4'}
+    dev: true
 
   /image-meta@0.1.1:
     resolution: {integrity: sha512-+oXiHwOEPr1IE5zY0tcBLED/CYcre15J4nwL50x3o0jxWqEkyjrusiKP3YSU+tr9fvJp33ZcP5Gpj2295g3aEw==}
@@ -9087,7 +9105,7 @@ packages:
       vue-tsc:
         optional: true
     dependencies:
-      '@babel/code-frame': 7.22.10
+      '@babel/code-frame': 7.22.13
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       chokidar: 3.5.3
