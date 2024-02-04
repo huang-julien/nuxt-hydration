@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@nuxt/devtools-kit':
-        specifier: ^0.8.0
-        version: 0.8.0(nuxt@3.8.1)(rollup@3.28.0)(vite@4.5.0)
+        specifier: ^1.0.0
+        version: 1.0.0(nuxt@3.8.1)(rollup@3.28.0)(vite@4.5.0)
       '@vueuse/components':
         specifier: ^10.3.0
         version: 10.3.0(vue@3.3.8)
@@ -1489,6 +1489,7 @@ packages:
     transitivePeerDependencies:
       - rollup
       - supports-color
+    dev: true
 
   /@nuxt/devtools-kit@1.0.0(nuxt@3.8.1)(rollup@3.28.0)(vite@4.5.0):
     resolution: {integrity: sha512-cNloBepQYCBW6x/ctfCvyYRZudxhfgh5w5JDswpCzn7KXmm8U6abG2jyT0FXIaceW1d5QYMpGCN1RUw24wSvOA==}

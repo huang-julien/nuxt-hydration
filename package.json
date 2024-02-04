@@ -29,7 +29,7 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@nuxt/devtools-kit": "^0.8.0",
+    "@nuxt/devtools-kit": "^1.0.0",
     "@vueuse/components": "^10.3.0",
     "@vueuse/core": "^10.3.0",
     "defu": "^6.1.2",
