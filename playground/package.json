@@ -2,6 +2,6 @@
   "private": true,
   "name": "playground",
   "devDependencies": {
-    "@nuxtjs/html-validator": "^1.4.0"
+    "@nuxtjs/html-validator": "^1.6.0"
   }
 }
