@@ -1,5 +1,5 @@
 import { getFragmentHTML } from '#app/components/utils'
-import { useNuxtApp, useState } from '#app'
+import { useNuxtApp, useState } from '#imports'
 import { getCurrentInstance, onMounted, VNode, isVNode, watch, onBeforeUnmount } from 'vue'
 
 type ExtendedVnode = VNode & { __hydrationMismatched?: boolean }
@@ -10,9 +10,9 @@ export function useComponentHydration (filePath: string) {
   if (process.server) { return }
 
   const showComponentHydration = useState('nuxt-hydration_show-component', () => true)
-  const instance = getCurrentInstance()!
+  const instance = getCurrentInstance()
   const app = useNuxtApp()
-  if (app.isHydrating) {
+  if (app.isHydrating && instance && instance.vnode.el) {
     const html = getFragmentHTML(instance.vnode.el).join('')
 
     let isHydrationMismatched = false

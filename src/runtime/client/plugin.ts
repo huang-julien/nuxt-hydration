@@ -1,28 +1,29 @@
 import { defineNuxtPlugin, onNuxtReady, useState } from '#app'
-import { LogObject, consola } from 'consola'
-import { createApp } from 'vue'
+import { consola } from 'consola'
+import type {LogObject} from 'consola'
+import { createApp, ref } from 'vue'
 import { hydrationMessages } from '../utils'
 import Container from '../view/Client.vue'
-import { getHtmlValidatorReason } from './reason/html-validator'
 
 export default defineNuxtPlugin({
   name: 'nuxt-hydration-plugin',
   parallel: true,
   setup: (nuxt) => {
     const hydrationFailed = useState('hydration-failed', () => false)
+    const hydrationNodeMismatch = useState<Node | null>('hydration-div', () => null)
 
     function onError (logObj: LogObject) {
+      if (logObj.args && typeof logObj.args[0] === 'string' && (logObj.args[0].includes('Hydration node mismatch') || logObj.args[0].includes('Hydration text content mismatch'))) {
+        for(const message of logObj.args) {
+          if (message instanceof Node) {
+             hydrationNodeMismatch.value = message
+            break
+          }
+        }
+      }
+      console.log(logObj)
       if (hydrationMessages.includes(logObj.args[0])) {
         hydrationFailed.value = true
-        const reason = getHtmlValidatorReason() || { reason: 'unknown' }
-        $fetch('/__hydration_ping', {
-          method: 'POST',
-          body: {
-            route: nuxt._route.matched[0]?.path ?? '/',
-            path: nuxt._route.fullPath,
-            reason
-          }
-        })
       }
     }
 
@@ -52,7 +53,7 @@ export default defineNuxtPlugin({
     consola.addReporter(
       {
         log (logObj) {
-          if (logObj.type === 'error') {
+          if (logObj.type === 'error' || logObj.type === 'warn') {
             onError(logObj)
           }
         }

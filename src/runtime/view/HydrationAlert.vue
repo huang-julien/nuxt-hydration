@@ -7,9 +7,12 @@
         </p>
         <template v-if="hydrationFailed">
           <p>
-            Hey ! there might be an issue with hydration ! Check your console or the devtools !
+            Hey ! there might be an issue with hydration ! Check your console !
           </p>
           <Reason v-if="hydrationFailed" />
+          <Suspense>
+            <HtmlBlock v-if="mismatchHtml"  :html="mismatchHtml" />
+          </Suspense>
         </template>
         <p v-else>
           Everything's ok !
@@ -28,14 +31,27 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from 'vue'
+import { useState } from '#imports'
+import { watch, computed } from 'vue'
 import { USESTATE_SHOW_KEY } from '../client/const'
 import Reason from './Reason.vue'
-import { useState } from '#imports'
+import HtmlBlock from './HtmlBlock.vue';
 
 const hydrationFailed = useState('hydration-failed', () => false)
 const state = useState('hydration-alert-state', () => false)
 const showComponent = useState(USESTATE_SHOW_KEY, () => true)
+const hydrationNodeMismatch = useState<Node | null>('hydration-div', () => null)
+
+const mismatchHtml = computed(() => {
+  const node = hydrationNodeMismatch.value
+  if(node instanceof HTMLElement) {
+    return node.outerHTML
+  }
+  if(node instanceof Text || node instanceof Comment) {
+    return node.textContent
+  }
+  return null
+})
 
 watch(hydrationFailed, () => {
   if (hydrationFailed.value) {
