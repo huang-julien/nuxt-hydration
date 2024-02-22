@@ -1,10 +1,10 @@
-import { defineNuxtModule, addPlugin, createResolver, addServerPlugin, addBuildPlugin, addTemplate } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin, createResolver, addServerPlugin, addBuildPlugin, addTemplate, installModule } from '@nuxt/kit'
 import defu from 'defu'
 import { SFCComponentHydrationPlugin } from './plugins/component-hydration'
 
 export default defineNuxtModule({
   meta: {
-    name: 'nuxt-hydration-checker'
+    name: 'nuxt-hydration'
   },
   defaults: {},
   async setup (_, nuxt) {
@@ -18,7 +18,7 @@ export default defineNuxtModule({
 
     addTemplate({
       filename: 'nuxt-hydration-composables.ts',
-      src: await resolver.resolvePath('./runtime/client/composables/component-hydration')
+      src: await resolver.resolvePath('./runtime/composables/component-hydration')
     })
 
     nuxt.hook('prepare:types', (options) => {
@@ -26,10 +26,6 @@ export default defineNuxtModule({
         { path: resolver.resolve('./runtime/types.d.ts') }
       )
     })
-
-    // @ts-expect-error @nuxtjs/html-validator integration
-    nuxt.options.htmlValidator = defu(nuxt.options.htmlValidator, { hookable: true })
-
-    addServerPlugin(resolver.resolve('./runtime/nitro'))
+    await installModule(await resolver.resolvePath('@unocss/nuxt'))
   }
 })

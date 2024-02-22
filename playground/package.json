@@ -3,5 +3,8 @@
   "name": "playground",
   "devDependencies": {
     "@nuxtjs/html-validator": "^1.6.0"
+  },
+  "scripts": {
+    "dev": "nuxi dev"
   }
 }

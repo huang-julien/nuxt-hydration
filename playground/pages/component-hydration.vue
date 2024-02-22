@@ -3,6 +3,10 @@
     <Counter />
 
     <HydrationIssue />
+    <HydrationIssue />
+    <HydrationIssue />
+
+    <AnotherComponentWithHydrationIssue />
   </div>
 </template>
 
