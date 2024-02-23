@@ -30,7 +30,6 @@ export default defineNuxtPlugin({
 
       // create the app
       const app = createApp(Container)
-      app.config.compilerOptions.isCustomElement =  (tag) => tag === 'iconify-icon',
       app.mount(containerNode)
     })
 

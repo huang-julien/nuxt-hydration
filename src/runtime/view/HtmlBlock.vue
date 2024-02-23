@@ -1,13 +1,13 @@
 
 <template>
-    <div class="wrapper flex flex-col">
+    <div class="wrapper flex flex-col border border-zinc-600 border-solid rounded-md">
         SSR rendered HTML mismatch:
         <div v-html="highlightedHtml" class="h-full" />
     </div>
 </template>
 
 <script setup lang="ts">
-import { getHighlighter, hastToHtml, } from "shiki/bundle/web"
+import { getHighlighter } from "shiki/bundle/web"
 import { computedAsync } from "@vueuse/core";
 // @ts-ignore
 import beautify from "js-beautify/js/src/html/index"
@@ -49,7 +49,6 @@ const highlightedHtml = computedAsync(async () => {
 
 <style scoped>
 .wrapper {
-    border: 2px solid #ff6969;
     padding: 1rem;
 
     :deep(.shiki) {

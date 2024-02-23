@@ -1,7 +1,5 @@
 import { createUnplugin } from 'unplugin'
 import MagicString from 'magic-string'
-// for UI
-import 'iconify-icon';
 
 const SCRIPT_RE = /<(script[^>]*)>([\s|\S]*)<\/script>/
 

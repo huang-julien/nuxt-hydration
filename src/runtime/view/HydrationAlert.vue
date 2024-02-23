@@ -3,23 +3,17 @@
     <Transition name="fade">
       <div v-if="state" id="nuxt-hydration-warn">
         <div class="flex mb-5">
-          <p class="title">
-            <b>nuxt-hydration</b>
+          <p class="text-xl font-bold">
+            nuxt-hydration
           </p>
-          <div class="actions">
-            <button title="toggle mismatched borders" class="rounded" @click="showComponent = !showComponent">
-              <svg :style="showComponent && 'color: green;'" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24">
-                <path fill="currentColor"
-                  d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z" />
-              </svg>
-            </button>
-            <button title="close" class="rounded" @click="state = false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="currentColor"
-                  d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z" />
-              </svg>
-            </button>
+          <div class="flex gap-5 ml-auto">
+            <NHButton title="toggle mismatched borders" class="rounded-full aspect-square w-8"
+              @click="showComponent = !showComponent">
+              <iconify-icon icon="mdi:eye" :style="showComponent && 'color: green;'"></iconify-icon>
+            </NHButton>
+            <NHButton title="close" class=" rounded-full aspect-square w-8" @click="state = false">
+              <iconify-icon icon="akar-icons:cross"></iconify-icon>
+            </NHButton>
           </div>
         </div>
         <div v-if="mismatchedComponents.length" class="grid grid-cols-2 gap-5">
@@ -31,13 +25,11 @@
             <p>Check your console !</p>
             <p>Component mismatching: <br />
             <div class="mt-5 grid gap-5">
-
-              <button v-for="component in mismatchedComponents"
-                class="bg-zinc-600 text-white w-full hover:cursor-pointer border-none active:bg-zinc-700 py-2 rounded-sm"
+              <NHButton v-for="component in mismatchedComponents" 
+              :class="{ 'bg-zinc-700': selected === component }"
                 @click="selected = component">
                 {{ component.name }}
-              </button>
-
+              </NHButton>
             </div>
             </p>
           </div>
@@ -59,6 +51,7 @@
 <script setup lang="ts">
 import { useState } from '#imports'
 import { ref } from 'vue'
+import NHButton from "../components/NHButton.vue"
 import { USESTATE_SHOW_KEY } from '../client/const'
 import HtmlBlock from './HtmlBlock.vue';
 import { useMismatchedComponents, type TMismatchedComponentInfo } from '../composables/component-hydration';
@@ -83,44 +76,8 @@ const selected = ref<TMismatchedComponentInfo | null>(null)
    box-shadow: 0px 0px 15px 6px rgba(0, 0, 0, 0.33);
  }
 
- .title {
-   font-size: 1.5em;
- }
 
  p {
    margin: 0.2em 0;
- }
-
- .actions {
-   display: flex;
-   gap: 0.5em;
-   margin-left: auto;
-   margin-top: 1rem;
-
-
-   button {
-     padding: 0.3em;
-     background: transparent;
-     border-radius: 10%;
-     background-color: #fff;
-     color: #343a40;
-     border-radius: 0.2em;
-     cursor: pointer;
-   }
-
-   button:hover {
-     background-color: #e1e1e1;
-     transition: all 0.2s ease-in-out;
-   }
-
-   button.rounded {
-     border-radius: 50%;
-     width: 2em;
-     height: 2em;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-   }
-
  }
 </style>

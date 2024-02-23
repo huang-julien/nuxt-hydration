@@ -10,6 +10,15 @@ export default defineNuxtModule({
   async setup (_, nuxt) {
     if (!nuxt.options.dev) { return }
 
+    const ogIsElementTagFn = nuxt.options.vue.compilerOptions.isCustomElement ?? (() => false)
+
+    nuxt.options.vue.compilerOptions.isCustomElement = (tag) => {
+      if (tag === 'iconify-icon') {
+        return true
+      }
+      return ogIsElementTagFn(tag)
+    }
+
     const resolver = createResolver(import.meta.url)
 
     addPlugin({ mode: 'client', src: resolver.resolve('./runtime/client/plugin') })
