@@ -7,7 +7,7 @@
 - Make sure you are aware when there's a hydration issue
   - hint which components mismatched
   - show the SSR rendered HTML
-    ![hydration-gif](./.github/UI.png)
+    ![hydration-UI](./.github/UI.png)
 
 
 ## Installation
