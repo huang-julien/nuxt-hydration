@@ -35,7 +35,7 @@
     "iconify-icon": "^2.0.0",
     "js-beautify": "^1.15.1",
     "magic-string": "^0.30.1",
-    "shiki": "1.0.0-beta.5",
+    "shiki": "1.1.7",
     "unplugin": "^1.4.0"
   },
   "devDependencies": {
