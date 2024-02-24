@@ -7,11 +7,12 @@ export const SFCComponentHydrationPlugin = createUnplugin(() => {
   return {
     name: 'nuxt-hydration:sfc-hook',
     enforce: 'pre',
-    transformInclude (id) {
+    transformInclude(id) {
       return id.endsWith('.vue')
     },
-    transform (code, id) {
+    transform(code, id) {
       const s = new MagicString(code)
+
 
       s.replace(SCRIPT_RE, (_full, tag, content) => {
         if (!tag.includes('setup')) { return _full }

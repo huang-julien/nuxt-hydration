@@ -6,26 +6,17 @@
 
 - Make sure you are aware when there's a hydration issue
   - hint which components mismatched
-    ![hydration-gif](./.github/hydration.gif)
-- `@nuxt/devtools` integration
+  - show the SSR rendered HTML
+    ![hydration-UI](./.github/UI.png)
 
-## integrations
-This module can be used alongside other modules to provide a better support to find hydration issues origins
-### `@nuxtjs/html-validator`
-- helps you to find html issues.
 
-## Setup
+## Installation
 
-1. Add `nuxt-hydration` as a dev dependency to your project
-```
-yarn add nuxt-hydration --dev # or npm install nuxt-hydration --save-dev
-```
-2. Add `nuxt-hydration` to the modules
-Note: if you wish to have `@nuxtjs/html-validator` integration, `nuxt-hydration` must be declared before.
-
-`nuxt.config.ts`
+- run `yarn|pnpm|npm install -D nuxt-hydration`
+- add it to your nuxt.config
 ```ts
 export default defineNuxtConfig({
-  modules: ['nuxt-hydration', '@nuxtjs/html-validator']
+  modules: ['nuxt-hydration']
 })
 ```
+- that's it !

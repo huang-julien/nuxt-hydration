@@ -1,16 +1,23 @@
-import { defineNuxtModule, addPlugin, createResolver, addServerPlugin, addBuildPlugin, addTemplate } from '@nuxt/kit'
-import sirv from 'sirv'
+import { defineNuxtModule, addPlugin, createResolver, addServerPlugin, addBuildPlugin, addTemplate, installModule } from '@nuxt/kit'
 import defu from 'defu'
-import initServer from './runtime/devtools/server/init'
 import { SFCComponentHydrationPlugin } from './plugins/component-hydration'
 
 export default defineNuxtModule({
   meta: {
-    name: 'nuxt-hydration-checker'
+    name: 'nuxt-hydration'
   },
   defaults: {},
   async setup (_, nuxt) {
     if (!nuxt.options.dev) { return }
+
+    const ogIsElementTagFn = nuxt.options.vue.compilerOptions.isCustomElement ?? (() => false)
+
+    nuxt.options.vue.compilerOptions.isCustomElement = (tag) => {
+      if (tag === 'iconify-icon') {
+        return true
+      }
+      return ogIsElementTagFn(tag)
+    }
 
     const resolver = createResolver(import.meta.url)
 
@@ -20,11 +27,7 @@ export default defineNuxtModule({
 
     addTemplate({
       filename: 'nuxt-hydration-composables.ts',
-      src: await resolver.resolvePath('./runtime/client/composables/component-hydration')
-    })
-
-    nuxt.hook('vite:serverCreated', (server) => {
-      server.middlewares.use('/__hydration_client', sirv(resolver.resolve('./client'), { single: true, dev: true }))
+      src: await resolver.resolvePath('./runtime/composables/component-hydration')
     })
 
     nuxt.hook('prepare:types', (options) => {
@@ -32,11 +35,6 @@ export default defineNuxtModule({
         { path: resolver.resolve('./runtime/types.d.ts') }
       )
     })
-
-    // @ts-expect-error @nuxtjs/html-validator integration
-    nuxt.options.htmlValidator = defu(nuxt.options.htmlValidator, { hookable: true })
-
-    addServerPlugin(resolver.resolve('./runtime/nitro'))
-    initServer(nuxt)
+    await installModule(await resolver.resolvePath('@unocss/nuxt'))
   }
 })
