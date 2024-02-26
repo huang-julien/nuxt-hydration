@@ -9,9 +9,8 @@
 <script setup lang="ts">
 import { getHighlighter } from "shiki/bundle/web"
 import { computedAsync } from "@vueuse/core";
-// @ts-ignore
-import beautify from "js-beautify/js/src/html/index"
-
+import format from "html-format";
+ 
 const props = defineProps<{
     html: string
 }>()
@@ -22,25 +21,7 @@ const highlighter = await getHighlighter({
 })
 
 const highlightedHtml = computedAsync(async () => {
-    return await highlighter.codeToHtml(beautify(props.html, {
-        "indent_size": "2",
-        "indent_char": " ",
-        "max_preserve_newlines": "1",
-        "preserve_newlines": true,
-        "keep_array_indentation": false,
-        "break_chained_methods": false,
-        "indent_scripts": "normal",
-        "brace_style": "expand",
-        "space_before_conditional": true,
-        "unescape_strings": false,
-        "jslint_happy": false,
-        "end_with_newline": true,
-        "wrap_line_length": "160",
-        "indent_inner_html": false,
-        "comma_first": false,
-        "e4x": false,
-        "indent_empty_lines": false
-    }), {
+    return await highlighter.codeToHtml(format(props.html), {
         lang: 'html',
         theme: 'github-dark'
     })

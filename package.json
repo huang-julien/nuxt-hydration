@@ -31,8 +31,8 @@
     "@vueuse/components": "^10.3.0",
     "defu": "^6.1.2",
     "h3": "^1.6.6",
+    "html-format": "^1.1.6",
     "iconify-icon": "^2.0.0",
-    "js-beautify": "^1.15.1",
     "magic-string": "^0.30.1",
     "shiki": "1.1.7",
     "unplugin": "^1.4.0"
