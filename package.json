@@ -17,8 +17,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "nuxt-module-build && nuxi generate ./client",
-    "build:client": "nuxi generate client",
+    "build": "nuxt-module-build",
     "dev": "pnpm --filter=playground dev",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub",
