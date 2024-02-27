@@ -20,9 +20,6 @@ importers:
       h3:
         specifier: ^1.6.6
         version: 1.6.6
-      html-format:
-        specifier: ^1.1.6
-        version: 1.1.6
       iconify-icon:
         specifier: ^2.0.0
         version: 2.0.0
@@ -6378,10 +6375,6 @@ packages:
     dependencies:
       lru-cache: 10.0.1
     dev: true
-
-  /html-format@1.1.6:
-    resolution: {integrity: sha512-Wcp82GgejyxNme62ozXnJ3BnlRlACVthFppGPDvdd7NK4Bn/NXsWndeVVfxA627m18L3KFc84wEvtzczTHT14Q==}
-    dev: false
 
   /html-tags@3.3.1:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
