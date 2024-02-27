@@ -1,6 +1,6 @@
 {
   "name": "nuxt-hydration",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Actively warns you about hydration issues",
   "license": "MIT",
   "type": "module",
