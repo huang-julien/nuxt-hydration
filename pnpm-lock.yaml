@@ -20,9 +20,6 @@ importers:
       h3:
         specifier: ^1.6.6
         version: 1.6.6
-      html-format:
-        specifier: ^1.1.6
-        version: 1.1.6
       iconify-icon:
         specifier: ^2.0.0
         version: 2.0.0
@@ -72,6 +69,9 @@ importers:
       eslint:
         specifier: ^8.40.0
         version: 8.40.0
+      htmlfy:
+        specifier: ^0.1.0
+        version: 0.1.0
       nuxt:
         specifier: ^3.10.0
         version: 3.10.0(eslint@8.40.0)(rollup@3.29.4)(sass@1.70.0)(typescript@5.3.3)(vite@5.1.4)
@@ -6379,10 +6379,6 @@ packages:
       lru-cache: 10.0.1
     dev: true
 
-  /html-format@1.1.6:
-    resolution: {integrity: sha512-Wcp82GgejyxNme62ozXnJ3BnlRlACVthFppGPDvdd7NK4Bn/NXsWndeVVfxA627m18L3KFc84wEvtzczTHT14Q==}
-    dev: false
-
   /html-tags@3.3.1:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
     engines: {node: '>=8'}
@@ -6419,6 +6415,10 @@ packages:
       prompts: 2.4.2
       semver: 7.5.4
       vitest: 1.3.1(sass@1.70.0)
+    dev: true
+
+  /htmlfy@0.1.0:
+    resolution: {integrity: sha512-lACWDZJ+RAT+7ieWd3/6O2KScZkMRAkwW83EmkCn/kpudHZ+w01Q6eE9sYgjUorMqi5BdvP24X/2bmp1Aw3JNQ==}
     dev: true
 
   /http-cache-semantics@4.1.1:
