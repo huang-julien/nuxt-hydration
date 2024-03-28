@@ -31,10 +31,10 @@
     "@vueuse/components": "^10.3.0",
     "defu": "^6.1.2",
     "h3": "^1.6.6",
-    "htmlfy": "^0.1.0",
+    "htmlfy": "^0.2.0",
     "iconify-icon": "^2.0.0",
     "magic-string": "^0.30.1",
-    "shiki": "1.1.7",
+    "shiki": "1.2.1",
     "unplugin": "^1.4.0"
   },
   "devDependencies": {
