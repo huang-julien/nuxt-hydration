@@ -38,7 +38,7 @@
     "unplugin": "^1.4.0"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.0.8",
+    "@nuxt/devtools": "^2.0.0",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/kit": "^3.10",
     "@nuxt/module-builder": "^0.5.0",
