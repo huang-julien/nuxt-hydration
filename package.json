@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@unocss/nuxt": "^0.58.5",
-    "@vueuse/components": "^10.3.0",
+    "@vueuse/components": "^13.0.0",
     "defu": "^6.1.2",
     "h3": "^1.6.6",
     "htmlfy": "^0.1.0",
@@ -46,7 +46,7 @@
     "@nuxt/test-utils": "^3.10.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@unocss/core": "^0.58.5",
-    "@vueuse/core": "^10.3.0",
+    "@vueuse/core": "^13.0.0",
     "changelogen": "^0.5.0",
     "consola": "^3.1.0",
     "eslint": "^8.40.0",
