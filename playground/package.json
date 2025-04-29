@@ -2,7 +2,7 @@
   "private": true,
   "name": "playground",
   "devDependencies": {
-    "@nuxtjs/html-validator": "^1.6.0"
+    "@nuxtjs/html-validator": "^2.0.0"
   },
   "scripts": {
     "dev": "nuxi dev"
