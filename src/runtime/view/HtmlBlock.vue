@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import { getHighlighter } from "shiki/bundle/web"
 import { computedAsync } from "@vueuse/core";
-import format from "html-format";
+import { prettify } from "htmlfy"
  
 const props = defineProps<{
     html: string
@@ -21,7 +21,7 @@ const highlighter = await getHighlighter({
 })
 
 const highlightedHtml = computedAsync(async () => {
-    return await highlighter.codeToHtml(format(props.html), {
+    return await highlighter.codeToHtml(prettify(props.html), {
         lang: 'html',
         theme: 'github-dark'
     })
