@@ -1,6 +1,6 @@
 # nuxt-hydration
 
-:warning: This module is still under development :warning:
+:rocket: Deprecation: This module has been fully moved into [@nuxt/hints](https://github.com/nuxt/hints) !
 
 ## Feature
 
